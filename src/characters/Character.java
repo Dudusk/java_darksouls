@@ -1,7 +1,8 @@
 package characters;
 
 import lsg.helpers.Dice;
-import lsg.weapons.Sword;
+import lsg.weapons.Claw;
+import lsg.weapons.ShotGun;
 import lsg.weapons.Weapons;
 
 public class Character {
@@ -11,8 +12,11 @@ public class Character {
     private int stamina;
     private int maxStamina;
 
+    private int degats;
+
     //private Sword sword = new Sword();
-    private Weapons playerWeapon = new Weapons("ShotGun", 6, 20, 5, 100);
+    private Weapons playerWeapon = new ShotGun();
+    private Weapons monsterWp = new Claw();
 
     private Dice dice = new Dice(101);
 
@@ -33,7 +37,7 @@ public class Character {
 
         //Get la précision
         int precision = this.dice.roll();
-        int degats;
+        //int degats;
 
         if (weapon.isBroken()) {
             System.out.println("L'arme < " + weapon.getName() + " > est cassée !");
@@ -63,7 +67,13 @@ public class Character {
     }
 
     public void attack(){
-        attackWith(playerWeapon);
+        //System.out.println(getClass().getName());
+
+        if (getClass().getName().equals("characters.Hero")) {
+            attackWith(playerWeapon);
+        } else {
+            attackWith(monsterWp);
+        }
     }
 
 
@@ -72,12 +82,6 @@ public class Character {
      */
 
     public int getHitWith(int value){
-//        if(getLife() < 0){
-//            System.out.println("mort");
-//        } else {
-//            setLife(getLife() - value);
-//        }
-
         life = (getLife() < 0) ? 0 : getLife() - value ;
         return value;
     }
@@ -105,6 +109,14 @@ public class Character {
     /*
      * GETTERS ET SETTERS
      */
+
+    public int getDegats() {
+        return degats;
+    }
+
+    public void setDegats(int degats) {
+        this.degats = degats;
+    }
 
     public Weapons getWeapon() {
         return playerWeapon;
