@@ -3,7 +3,6 @@ package characters;
 
 public class Hero extends Character{
 
-
     public Hero() {
         super();
         setName("Ynovator");

@@ -12,7 +12,7 @@ public class Character {
     private int maxStamina;
 
     //private Sword sword = new Sword();
-    private Weapons playerWeapon = new Sword();
+    private Weapons playerWeapon = new Weapons("ShotGun", 6, 20, 5, 100);
 
     private Dice dice = new Dice(101);
 
