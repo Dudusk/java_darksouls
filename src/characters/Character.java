@@ -26,17 +26,9 @@ public class Character {
 
 
     /*
-     * Lance le dé avec 101 faces
-     */
-    public int precisionHero(){
-        return dice.roll();
-    }
-
-    /*
      * Attaque avec l'arme
      */
-
-    public int attackWith(Weapons weapon) {
+    private int attackWith(Weapons weapon) {
 
         //Get la précision
         int precision = this.dice.roll();
@@ -62,9 +54,9 @@ public class Character {
             this.stamina = 0;
             degats = Math.round(pourcentage * degats);
         }
-        System.out.println("Precision : " + precision);
-        weapon.use();
+       // System.out.println("Precision : " + precision);
         System.out.println("Attaque avec " + weapon + " > " + degats);
+        weapon.use();
         return degats;
     }
 
