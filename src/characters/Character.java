@@ -37,8 +37,6 @@ public class Character {
 
     public void attackWith(Weapons weapon){
 
-        System.out.println(new Sword());
-
         //Get la précision
         int precision = this.precisionHero();
         // calcul des dégats
@@ -48,21 +46,21 @@ public class Character {
             degats = 0;
             System.out.println("L'arme < " + weapon.getName() + " > est cassée !");
         } else {
-            if (weapon.getStamCost()<= getStamina()) {
-                System.out.println(degats);
+            if (weapon.getStamCost() <= getStamina()) {
+                degats = ((precision/100) * weapon.getMaxDamage()) + weapon.getMinDamage();
             }
-            if (weapon.getStamCost() >= getStamina()) {
-                degats = degats * ((weapon.getStamCost() - getStamina()) * 100) / weapon.getStamCost();
+            else if (weapon.getStamCost() > getStamina()) {
+                degats = degats * ((weapon.getStamCost() - getStamina())) / weapon.getStamCost();
             }
-            else if (getStamina() == 0){
+            else {
                 degats = 0;
             }
 
-            System.out.println("Precision : " + precision);
             weapon.use();
             System.out.println("Attaque avec " + weapon + " > " + Math.round(degats));
+            System.out.println("Precision : " + precision);
 
-            if(getStamina() < 0){
+            if(getStamina() < 0 || (getStamina() - weapon.getStamCost()) < 0){
                 setStamina(0);
             } else {
                 setStamina(getStamina() - weapon.getStamCost());
