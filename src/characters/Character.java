@@ -36,19 +36,15 @@ public class Character {
      */
 
     public void attackWith(Weapons weapon){
-
-        System.out.println(new Sword());
-
         if(weapon.isBroken()){
             System.out.println("L'arme < " + weapon.getName() + " > est cassée !");
         } else {
-            weapon.use();
             //Get la précision
             int precision = this.precisionHero();
 
             // calcul des degats
             int degats = ((precision/100) * weapon.getMaxDamage()) + weapon.getMinDamage();
-            if (weapon.getDurability() > 0) {
+            if (!weapon.isBroken()) {
                 if (weapon.getStamCost()<= getStamina()) {
                     System.out.println("Attaque avec " + weapon + " > " + Math.round(degats));
                 }
@@ -60,14 +56,19 @@ public class Character {
                     degats = 0;
                     System.out.println("Attaque avec " + weapon + " > " + Math.round(degats));
                 }
-            }
-            else {
+            } else {
                 degats = 0;
             }
+
             System.out.println("Precision : " + precision);
+            weapon.use();
 
+            if(getStamina() < 0){
+                setStamina(0);
+            } else {
+                setStamina(getStamina() - weapon.getStamCost());
+            }
         }
-
     }
 
     public void printStats() {
