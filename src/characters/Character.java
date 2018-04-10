@@ -20,7 +20,6 @@ public class Character {
         this.name= "character";
     }
 
-    //Nique ta grand mere
 
     /*
      * Lance le dé avec 101 faces
