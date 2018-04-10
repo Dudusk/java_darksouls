@@ -10,9 +10,11 @@ public class LearningSoulsGame {
 
     public static void main(String[] args){
         Hero hero = new Hero();
+        Sword sword = new Sword();
         hero.printStats();
         hero.precisionHero();
-        hero.attackWith(new Sword());
+
+        hero.attackWith(sword);
 
         Monster monster = new Monster();
         monster.printStats();

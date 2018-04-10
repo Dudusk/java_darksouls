@@ -20,7 +20,7 @@ public class Weapons {
     }
 
     public void use(){
-        setDurability(-1);
+        setDurability(1);
     }
 
     public boolean isBroken(){
@@ -46,7 +46,7 @@ public class Weapons {
      * */
 
     public void setDurability(int durability) {
-        this.durability = durability;
+        this.durability -= durability;
     }
 
     public void setName(String name) {

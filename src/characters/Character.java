@@ -37,7 +37,7 @@ public class Character {
 
     public void attackWith(Weapons weapon){
 
-        System.out.println(new Sword());
+        System.out.println(weapon);
 
         if(weapon.isBroken()){
             System.out.println("L'arme < " + weapon.getName() + " > est cassée !");
