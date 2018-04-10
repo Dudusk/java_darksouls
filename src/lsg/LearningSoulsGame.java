@@ -14,8 +14,9 @@ public class LearningSoulsGame {
         hero.printStats();
         hero.precisionHero();
 
-        hero.attackWith(sword);
-
+        for (int i=0; i<5; i++) {
+            hero.attackWith(sword);
+        }
         Monster monster = new Monster();
         monster.printStats();
         Monster monster2 = new Monster();
