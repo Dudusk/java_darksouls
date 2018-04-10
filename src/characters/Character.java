@@ -36,32 +36,31 @@ public class Character {
      */
 
     public void attackWith(Weapons weapon){
+
+        System.out.println(new Sword());
+
+        //Get la précision
+        int precision = this.precisionHero();
+        // calcul des dégats
+        int degats = ((precision/100) * weapon.getMaxDamage()) + weapon.getMinDamage();
+
         if(weapon.isBroken()){
+            degats = 0;
             System.out.println("L'arme < " + weapon.getName() + " > est cassée !");
         } else {
-            //Get la précision
-            int precision = this.precisionHero();
-
-            // calcul des degats
-            int degats = ((precision/100) * weapon.getMaxDamage()) + weapon.getMinDamage();
-            if (!weapon.isBroken()) {
-                if (weapon.getStamCost()<= getStamina()) {
-                    System.out.println("Attaque avec " + weapon + " > " + Math.round(degats));
-                }
-                if (weapon.getStamCost() >= getStamina()) {
-                    degats = degats * ((weapon.getStamCost() - getStamina()) * 100) / weapon.getStamCost();
-                    System.out.println("Attaque avec " + weapon + " > " + Math.round(degats));
-                }
-                else if (getStamina() == 0){
-                    degats = 0;
-                    System.out.println("Attaque avec " + weapon + " > " + Math.round(degats));
-                }
-            } else {
+            if (weapon.getStamCost()<= getStamina()) {
+                System.out.println(degats);
+            }
+            if (weapon.getStamCost() >= getStamina()) {
+                degats = degats * ((weapon.getStamCost() - getStamina()) * 100) / weapon.getStamCost();
+            }
+            else if (getStamina() == 0){
                 degats = 0;
             }
 
             System.out.println("Precision : " + precision);
             weapon.use();
+            System.out.println("Attaque avec " + weapon + " > " + Math.round(degats));
 
             if(getStamina() < 0){
                 setStamina(0);
