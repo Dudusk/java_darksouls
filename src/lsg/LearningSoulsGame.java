@@ -15,16 +15,24 @@ public class LearningSoulsGame {
         hero.precisionHero();
 
         for (int i=0; i<5; i++) {
-            hero.attackWith(sword);
+            hero.attack();
+            //hero.attackWith(sword);
             hero.printStats();
         }
+
+        System.out.println("\n---------------\n");
+
         Monster monster = new Monster();
-        monster.printStats();
-        Monster monster2 = new Monster();
-        monster2.printStats();
-        Monster monster3 = new Monster();
-        monster3.printStats();
-        hero.isAlive();
+        for (int i=0; i<5; i++) {
+            monster.printStats();
+            monster.attack();
+        }
+
+//        Monster monster2 = new Monster();
+//        monster2.printStats();
+//        Monster monster3 = new Monster();
+//        monster3.printStats();
+//        hero.isAlive();
 
 //        Dice dice = new Dice(50);
 //        dice.rollTest();

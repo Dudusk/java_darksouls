@@ -11,7 +11,8 @@ public class Character {
     private int stamina;
     private int maxStamina;
 
-    private Sword sword = new Sword();
+    //private Sword sword = new Sword();
+    private Weapons playerWeapon = new Sword();
 
     private Dice dice = new Dice(101);
 
@@ -67,6 +68,10 @@ public class Character {
         return degats;
     }
 
+    public void attack(){
+        attackWith(playerWeapon);
+    }
+
     public void printStats() {
         System.out.println(toString());
     }
@@ -89,6 +94,14 @@ public class Character {
     /*
      * GETTERS ET SETTERS
      */
+
+    public Weapons getWeapon() {
+        return playerWeapon;
+    }
+
+    public void setWeapon(Weapons weapon) {
+        this.playerWeapon = weapon;
+    }
 
     public String getName() {
         return name;
