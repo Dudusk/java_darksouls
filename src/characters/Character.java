@@ -1,5 +1,8 @@
 package characters;
 
+import lsg.helpers.Dice;
+import lsg.weapons.Weapons;
+
 public class Character {
     private String name;
     private int life;
@@ -7,11 +10,31 @@ public class Character {
     private int stamina;
     private int maxStamina;
 
+    private Dice dice = new Dice(101);
+
     /*
      * METHODES
+     * Constructeur
      */
     public Character() {
         this.name= "character";
+    }
+
+    //Nique ta grand mere
+
+    /*
+     * Lance le dé avec 101 faces
+     */
+    public void lanceDesHero(){
+        dice.roll();
+    }
+
+    /*
+     * Attaque avec l'arme
+     */
+
+    public void attackWith(Weapons weapon){
+
     }
 
     public void printStats() {
@@ -36,6 +59,7 @@ public class Character {
     /*
      * GETTERS ET SETTERS
      */
+
     public String getName() {
         return name;
     }

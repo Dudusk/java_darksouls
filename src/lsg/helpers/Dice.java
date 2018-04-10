@@ -7,20 +7,41 @@ public class Dice {
     Random rnd;
     int nombre;
 
+    int maxVal = Integer.MAX_VALUE;
+    int minVal = Integer.MIN_VALUE;
 
+    int arrayNombreDice[] = new int[50];
 
     public Dice(int faces) {
         this.faces = faces;
+    }
+
+    public void rollTest() {
+        for (int i = 0 ; i<50 ; i++){
+            rnd = new Random();
+            nombre = rnd.nextInt(faces - 1);
+            arrayNombreDice[i] = nombre;
+        }
+        //return nombre;
+        for(Integer str : arrayNombreDice)
+            System.out.print(str + " ");
+
+        for(int i = 0; i < arrayNombreDice.length; i++){
+            if(arrayNombreDice[i] < maxVal)
+                maxVal = arrayNombreDice[i];
+            if(arrayNombreDice[i] > minVal)
+                minVal = arrayNombreDice[i];
+        }
+
+        System.out.println("\n\nMin : "+maxVal);
+        System.out.println("Max : "+minVal);
     }
 
     public int roll() {
         rnd = new Random();
         nombre = rnd.nextInt(faces - 1);
         System.out.println(nombre);
-        int min = Integer.MIN_VALUE;
-        int max = Integer.MAX_VALUE;
-        System.out.println("min :" + min);
-        System.out.println("max :" + max);
+
         return nombre;
     }
 
@@ -33,3 +54,8 @@ public class Dice {
     }
 
 }
+
+
+
+
+
