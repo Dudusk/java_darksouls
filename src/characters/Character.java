@@ -28,6 +28,7 @@ public class Character {
     /*
      * Attaque avec l'arme
      */
+
     private int attackWith(Weapons weapon) {
 
         //Get la précision
@@ -54,15 +55,33 @@ public class Character {
             this.stamina = 0;
             degats = Math.round(pourcentage * degats);
         }
-       // System.out.println("Precision : " + precision);
+        //System.out.println("Precision : " + precision);
         System.out.println("Attaque avec " + weapon + " > " + degats);
         weapon.use();
+        getHitWith(degats);
         return degats;
     }
 
     public void attack(){
         attackWith(playerWeapon);
     }
+
+
+    /**
+     * Enlève de la vie
+     */
+
+    public int getHitWith(int value){
+//        if(getLife() < 0){
+//            System.out.println("mort");
+//        } else {
+//            setLife(getLife() - value);
+//        }
+
+        life = (getLife() < 0) ? 0 : getLife() - value ;
+        return value;
+    }
+
 
     public void printStats() {
         System.out.println(toString());
