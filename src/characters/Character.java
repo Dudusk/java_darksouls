@@ -1,6 +1,7 @@
 package characters;
 
 import lsg.helpers.Dice;
+import lsg.weapons.Sword;
 import lsg.weapons.Weapons;
 
 public class Character {
@@ -9,6 +10,8 @@ public class Character {
     private int maxLife;
     private int stamina;
     private int maxStamina;
+
+    private Sword sword = new Sword();
 
     private Dice dice = new Dice(101);
 
@@ -24,8 +27,8 @@ public class Character {
     /*
      * Lance le dé avec 101 faces
      */
-    public void lanceDesHero(){
-        dice.roll();
+    public int precisionHero(){
+        return dice.roll();
     }
 
     /*
@@ -33,6 +36,19 @@ public class Character {
      */
 
     public void attackWith(Weapons weapon){
+
+        System.out.println(new Sword());
+
+        if(weapon.isBroken()){
+            System.out.println("L'arme < " + weapon.getName() + " > est cassée !");
+        } else {
+            weapon.use();
+            //Get la précision
+            int precision = this.precisionHero();
+            int degats = 3;
+            System.out.println("Precision : " + precision);
+            System.out.println("Attaque avec " + weapon + " > " + Math.round(degats));
+        }
 
     }
 

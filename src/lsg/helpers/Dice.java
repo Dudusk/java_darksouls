@@ -40,7 +40,6 @@ public class Dice {
     public int roll() {
         rnd = new Random();
         nombre = rnd.nextInt(faces - 1);
-        System.out.println(nombre);
 
         return nombre;
     }

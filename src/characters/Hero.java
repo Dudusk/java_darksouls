@@ -1,5 +1,8 @@
 package characters;
 
+import lsg.weapons.Sword;
+import lsg.weapons.Weapons;
+
 public class Hero extends Character{
 
 

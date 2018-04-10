@@ -1,9 +1,11 @@
 package lsg.weapons;
 
-public class Sword {
+public class Sword extends Weapons {
+
 
     public Sword(){
-        Weapons epee = new Weapons("Basic Sword", 5, 10, 20, 100);
+        super();
+        Weapons sword = new Weapons("Basic Sword", 5, 10, 20, 100);
     }
 
 }

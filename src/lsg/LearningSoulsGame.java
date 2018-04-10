@@ -3,13 +3,16 @@ package lsg;
 import characters.Hero;
 import characters.Monster;
 import lsg.helpers.Dice;
+import lsg.weapons.Sword;
+import lsg.weapons.Weapons;
 
 public class LearningSoulsGame {
 
     public static void main(String[] args){
         Hero hero = new Hero();
         hero.printStats();
-        hero.lanceDesHero();
+        hero.precisionHero();
+        hero.attackWith(new Sword());
 
         Monster monster = new Monster();
         monster.printStats();
