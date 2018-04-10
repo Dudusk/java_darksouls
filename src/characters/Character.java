@@ -35,37 +35,36 @@ public class Character {
      * Attaque avec l'arme
      */
 
-    public void attackWith(Weapons weapon){
+    public int attackWith(Weapons weapon) {
 
         //Get la précision
-        int precision = this.precisionHero();
-        // calcul des dégats
-        int degats = ((precision/100) * weapon.getMaxDamage()) + weapon.getMinDamage();
+        int precision = this.dice.roll();
+        int degats;
 
-        if(weapon.isBroken()){
-            degats = 0;
+        if (weapon.isBroken()) {
             System.out.println("L'arme < " + weapon.getName() + " > est cassée !");
-        } else {
-            if (weapon.getStamCost() <= getStamina()) {
-                degats = ((precision/100) * weapon.getMaxDamage()) + weapon.getMinDamage();
-            }
-            else if (weapon.getStamCost() > getStamina()) {
-                degats = degats * ((weapon.getStamCost() - getStamina())) / weapon.getStamCost();
-            }
-            else {
-                degats = 0;
-            }
-
-            weapon.use();
-            System.out.println("Attaque avec " + weapon + " > " + Math.round(degats));
-            System.out.println("Precision : " + precision);
-
-            if(getStamina() < 0 || (getStamina() - weapon.getStamCost()) < 0){
-                setStamina(0);
-            } else {
-                setStamina(getStamina() - weapon.getStamCost());
-            }
+            return 0;
         }
+        if (precision == 0) {
+            degats = weapon.getMinDamage();
+        } else if (precision == 100) {
+            degats = weapon.getMaxDamage();
+        } else {
+            degats = Math.round(((precision / 100f) * (weapon.getMaxDamage() - weapon.getMinDamage())) + weapon.getMinDamage());
+        }
+
+        // baisse de la stamina après chaque coup
+        if (this.stamina >= weapon.getStamCost()) {
+            this.stamina -= weapon.getStamCost();
+        } else {
+            float pourcentage = this.stamina / weapon.getStamCost() * 100;
+            this.stamina = 0;
+            degats = Math.round(pourcentage * degats);
+        }
+        System.out.println("Precision : " + precision);
+        weapon.use();
+        System.out.println("Attaque avec " + weapon + " > " + degats);
+        return degats;
     }
 
     public void printStats() {
