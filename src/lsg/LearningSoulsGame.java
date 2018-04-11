@@ -15,18 +15,28 @@ public class LearningSoulsGame {
         Scanner sc = new Scanner(System.in);
         Hero hero = new Hero();
         Monster monster = new Monster();
-
-
+        
+        hero.printStats();
+        monster.printStats();
+        System.out.println("------------");
 
         for (int i=0; i<5; i++) {
             //hero.attackWith(sword);
-            hero.printStats();
-            monster.printStats();
-            hero.getHitWith(monster.getDegats());
-            monster.getHitWith(hero.getDegats());
-            hero.attack();
-            monster.attack();
-
+        	
+        	hero.printStats();
+            if(hero.isAlive() && monster.isAlive()) {
+            	hero.attack();
+            	hero.getHitWith(monster.getDegats());
+            	monster.getHitWith(hero.getDegats());
+            }
+            
+        	monster.printStats();
+            if(monster.isAlive()) {
+            	monster.attack();
+            	hero.getHitWith(monster.getDegats());
+            	monster.getHitWith(hero.getDegats());
+            }
+            
         }
 
 //        Dice dice = new Dice(50);

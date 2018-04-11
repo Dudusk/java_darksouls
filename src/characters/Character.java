@@ -20,7 +20,7 @@ public class Character {
 
     private Dice dice = new Dice(101);
 
-    /*
+    /**
      * METHODES
      * Constructeur
      */
@@ -29,7 +29,7 @@ public class Character {
     }
 
 
-    /*
+    /**
      * Attaque avec l'arme
      */
 
@@ -65,10 +65,8 @@ public class Character {
         getHitWith(degats);
         return degats;
     }
-
+    
     public void attack(){
-        //System.out.println(getClass().getName());
-
         if (getClass().getName().equals("characters.Hero")) {
             attackWith(playerWeapon);
         } else {
@@ -78,15 +76,22 @@ public class Character {
 
 
     /**
-     * EnlÃ¨ve de la vie
+     * Enlève de la vie
      */
 
     public int getHitWith(int value){
         life = (getLife() < 0) ? 0 : getLife() - value ;
+        if(getLife() < 0) {
+    		setLife(0);
+    	}
         return value;
     }
 
-
+    
+    /**
+     * Affichage des stats
+     */
+    
     public void printStats() {
         System.out.println(toString());
     }
@@ -106,7 +111,8 @@ public class Character {
         return getLife() > 0;
     }
 
-    /*
+    
+    /**
      * GETTERS ET SETTERS
      */
 
