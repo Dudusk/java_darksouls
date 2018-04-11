@@ -34,7 +34,7 @@ public class Character {
      */
 
     private int attackWith(Weapons weapon) {
-
+    	
         //Get la précision
         int precision = this.dice.roll();
         //int degats;
@@ -62,7 +62,7 @@ public class Character {
         //System.out.println("Precision : " + precision);
         System.out.println("Attaque avec " + weapon + " > " + degats);
         weapon.use();
-        getHitWith(degats);
+        //getHitWith(degats);
         return degats;
     }
     

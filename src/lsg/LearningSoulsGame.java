@@ -11,41 +11,38 @@ import java.util.Scanner;
 
 public class LearningSoulsGame {
 
-    public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
-        Hero hero = new Hero();
-        Monster monster = new Monster();
-        
-        hero.printStats();
-        monster.printStats();
-        System.out.println("------------");
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		Hero hero = new Hero();
+		Monster monster = new Monster();
 
-        for (int i=0; i<5; i++) {
-            //hero.attackWith(sword);
-        	
-        	hero.printStats();
-            if(hero.isAlive() && monster.isAlive()) {
-            	hero.attack();
-            	hero.getHitWith(monster.getDegats());
-            	monster.getHitWith(hero.getDegats());
-            }
-            
-        	monster.printStats();
-            if(monster.isAlive()) {
-            	monster.attack();
-            	hero.getHitWith(monster.getDegats());
-            	monster.getHitWith(hero.getDegats());
-            }
-            
-        }
+		hero.printStats();
+		monster.printStats();
+		System.out.println("------------");
 
-//        Dice dice = new Dice(50);
-//        dice.rollTest();
-    }
+		for (int i = 0; i < 5; i++) {
+			// hero.attackWith(sword);
 
+			// Le héro
+			hero.printStats();
+			if (hero.isAlive() && monster.isAlive()) {
+				hero.attack();
+				monster.getHitWith(hero.getDegats());
+			}
 
-    public static void refresh () {
+			// Le monstre
+			monster.printStats();
+			if (monster.isAlive()) {
+				monster.attack();
+				hero.getHitWith(monster.getDegats());
+			}
 
-    }
+		}
+
+	}
+
+	public static void refresh() {
+
+	}
 
 }
