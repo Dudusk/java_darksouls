@@ -1,8 +1,12 @@
 # Compiled class file
 *.class
 
-#Ignore idea file
+#Ignore idea et eclipse file
 .idea/
+.idea/
+.project
+.classpath
+bin
 
 # Log file
 *.log
