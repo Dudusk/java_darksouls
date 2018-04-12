@@ -14,6 +14,7 @@ public class Hero extends Character{
     
     @Override
     public void fight1v1() {
+    	
     	System.out.println("Hit enter \t key for \t next move >");
     	Scanner sc = new Scanner(System.in);
     	
@@ -26,10 +27,10 @@ public class Hero extends Character{
     	}
     	
 	    if(enterkey.equals("")){
-	        attack();
+	    	refresh();
+	    	if(isAlive())
+	    		attack();
 	    }
-    	
-    	refresh();
     	
     }
 }

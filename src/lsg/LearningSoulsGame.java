@@ -17,6 +17,8 @@ public class LearningSoulsGame {
 		Monster monster = new Monster();
 
 		System.out.println("------------");
+		
+		
 
 		while(hero.isAlive() && monster.isAlive() && hero.getStamina() > 0 && monster.getStamina() > 0) {
 			hero.fight1v1();
@@ -25,8 +27,15 @@ public class LearningSoulsGame {
 			hero.getHitWith(monster.getDegats());
 		}
 		
-		
+		if(!monster.isAlive()) {
+			System.out.println("\n--- \t" + hero.getName() + " WINS !!! \t ---");
+		} else if(!hero.isAlive()) {
+			System.out.println("\n--- \t" + monster.getName() + " WINS !!! \t ---");
+		}
 			
+		
+		
+		
 		
 //		for (int i = 0; i < 5; i++) {
 //			
@@ -44,11 +53,7 @@ public class LearningSoulsGame {
 //				hero.getHitWith(monster.getDegats());
 //			}
 //			
-			if(!monster.isAlive()) {
-				System.out.println(hero.getName() + " WINS !");
-			} else if(!hero.isAlive()) {
-				System.out.println(monster.getName() + " WINS !");
-			}
+			
 //
 //		}
 		

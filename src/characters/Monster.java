@@ -16,7 +16,8 @@ public class Monster extends Character {
     @Override
     public void fight1v1() {
     	refresh();
-    	attack();
+    	if(isAlive())
+    		attack();
     }
     
 

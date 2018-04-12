@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 import lsg.helpers.Dice;
 import lsg.weapons.Claw;
 import lsg.weapons.ShotGun;
+import lsg.weapons.Sword;
 import lsg.weapons.Weapons;
 
 public class Character extends JFrame {
@@ -78,11 +79,11 @@ public class Character extends JFrame {
     
     public void attack(){
         if (getClass().getName().equals("characters.Hero")) {
-            attackWith(playerWeapon);
-            setWeapon(playerWeapon);
+        	setWeapon(playerWeapon);
+        	attackWith(playerWeapon);
         } else {
-            attackWith(monsterWp);
-            setWeapon(monsterWp);
+        	setWeapon(monsterWp);
+        	attackWith(monsterWp);
         }
     }
     
@@ -92,22 +93,37 @@ public class Character extends JFrame {
 	}
 
     
-    public void fight1v1() {    	
-    	String tourDe = "";
-    	System.out.println("Hit enter \t key for \t next move >");
+    public void fight1v1() {
+    	System.out.println("\n\nHit enter \t key for \t next move >\n");
     	Scanner sc = new Scanner(System.in);
     	
     	String enterkey = sc.nextLine();
     	
     	// Touche entrée
     	while(!enterkey.equals("")) {
-    		System.out.println("Appuyez sur la touche entrée !");
+    		System.out.println("\n\nHit enter \t key for \t next move >\n");
     		enterkey = sc.nextLine();
     	}
     	
 	    if(enterkey.equals("")){
 	        attack();
 	    }
+    }
+    
+    /**
+     * C'est bof par ici, not used
+     */
+    public void init() {
+    	Hero hero = new Hero();
+    	Monster monster = new Monster();
+    	
+    	hero.setWeapon(new Sword());
+    	monster.setWeapon(monsterWp);
+    }
+    
+    public void play_v1() {
+    	init();
+    	fight1v1();
     }
     
 
