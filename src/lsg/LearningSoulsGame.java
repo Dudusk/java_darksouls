@@ -10,39 +10,48 @@ import lsg.weapons.Weapons;
 import java.util.Scanner;
 
 public class LearningSoulsGame {
-
+	
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+		
 		Hero hero = new Hero();
 		Monster monster = new Monster();
 
-		hero.printStats();
-		monster.printStats();
 		System.out.println("------------");
 
-		for (int i = 0; i < 5; i++) {
-			// hero.attackWith(sword);
-
-			// Le héro
-			hero.printStats();
-			if (hero.isAlive() && monster.isAlive()) {
-				hero.attack();
-				monster.getHitWith(hero.getDegats());
-			}
-
-			// Le monstre
-			monster.printStats();
-			if (monster.isAlive()) {
-				monster.attack();
-				hero.getHitWith(monster.getDegats());
-			}
-
+		while(hero.isAlive() && monster.isAlive() && hero.getStamina() > 0 && monster.getStamina() > 0) {
+			hero.fight1v1();
+			monster.getHitWith(hero.getDegats());
+			monster.fight1v1();
+			hero.getHitWith(monster.getDegats());
 		}
-
+		
+		
+			
+		
+//		for (int i = 0; i < 5; i++) {
+//			
+//			// Le héro
+//			hero.refresh();
+//			if (hero.isAlive() && monster.isAlive()) {
+//				hero.attack();
+//				monster.getHitWith(hero.getDegats());
+//			}
+//
+//			// Le monstre
+//			monster.refresh();
+//			if (monster.isAlive() && hero.isAlive()) {
+//				monster.attack();
+//				hero.getHitWith(monster.getDegats());
+//			}
+//			
+			if(!monster.isAlive()) {
+				System.out.println(hero.getName() + " WINS !");
+			} else if(!hero.isAlive()) {
+				System.out.println(monster.getName() + " WINS !");
+			}
+//
+//		}
+		
 	}
-
-	public static void refresh() {
-
-	}
-
+	
 }

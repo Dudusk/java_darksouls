@@ -1,11 +1,17 @@
 package characters;
 
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.util.Scanner;
+
+import javax.swing.JFrame;
+
 import lsg.helpers.Dice;
 import lsg.weapons.Claw;
 import lsg.weapons.ShotGun;
 import lsg.weapons.Weapons;
 
-public class Character {
+public class Character extends JFrame {
     private String name;
     private int life;
     private int maxLife;
@@ -18,6 +24,8 @@ public class Character {
     private Weapons playerWeapon = new ShotGun();
     private Weapons monsterWp = new Claw();
 
+   
+    
     private Dice dice = new Dice(101);
 
     /**
@@ -51,7 +59,7 @@ public class Character {
             degats = Math.round(((precision / 100f) * (weapon.getMaxDamage() - weapon.getMinDamage())) + weapon.getMinDamage());
         }
 
-        // baisse de la stamina aprÃ¨s chaque coup
+        // baisse de la stamina après chaque coup
         if (this.stamina >= weapon.getStamCost()) {
             this.stamina -= weapon.getStamCost();
         } else {
@@ -60,20 +68,48 @@ public class Character {
             degats = Math.round(pourcentage * degats);
         }
         //System.out.println("Precision : " + precision);
-        System.out.println("Attaque avec " + weapon + " > " + degats);
-        weapon.use();
-        //getHitWith(degats);
+        System.out.println(" !!! " + getName() + " attaque son adversaire avec " + weapon + " (" + degats + ") !!!" );
+        //System.out.println("Attaque avec " + weapon + " > " + degats);
+        if(isAlive()) {
+        	weapon.use();
+        }
         return degats;
     }
     
     public void attack(){
         if (getClass().getName().equals("characters.Hero")) {
             attackWith(playerWeapon);
+            setWeapon(playerWeapon);
         } else {
             attackWith(monsterWp);
+            setWeapon(monsterWp);
         }
     }
+    
+    
+    public void refresh() {
+		printStats();
+	}
 
+    
+    public void fight1v1() {    	
+    	String tourDe = "";
+    	System.out.println("Hit enter \t key for \t next move >");
+    	Scanner sc = new Scanner(System.in);
+    	
+    	String enterkey = sc.nextLine();
+    	
+    	// Touche entrée
+    	while(!enterkey.equals("")) {
+    		System.out.println("Appuyez sur la touche entrée !");
+    		enterkey = sc.nextLine();
+    	}
+    	
+	    if(enterkey.equals("")){
+	        attack();
+	    }
+    }
+    
 
     /**
      * Enlève de la vie

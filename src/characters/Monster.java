@@ -10,6 +10,14 @@ public class Monster extends Character {
         setName("Monster_" +  INSTANCES_COUNT);
         setLife(10);
         setStamina(10);
+        refresh();
     }
+    
+    @Override
+    public void fight1v1() {
+    	refresh();
+    	attack();
+    }
+    
 
 }
