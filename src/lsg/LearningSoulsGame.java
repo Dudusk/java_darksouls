@@ -17,11 +17,12 @@ public class LearningSoulsGame {
 	public static void main(String[] args) {
 		
 		Hero hero = new Hero();
+		hero.setArmorItem(new BlackWitchVeil(), 1);
 		Monster monster = new Monster();
-		ArmorItem blackMachin = new BlackWitchVeil();
+		
 
 		System.out.println("------------");
-		
+				
 		
 
 		while(hero.isAlive() && monster.isAlive() && hero.getStamina() > 0 && monster.getStamina() > 0) {

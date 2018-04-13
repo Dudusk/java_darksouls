@@ -12,7 +12,7 @@ import lsg.weapons.ShotGun;
 import lsg.weapons.Sword;
 import lsg.weapons.Weapons;
 
-public class Character extends JFrame {
+public abstract class Character {
     private String name;
     private int life;
     private int maxLife;
@@ -24,9 +24,6 @@ public class Character extends JFrame {
     //private Sword sword = new Sword();
     private Weapons playerWeapon = new ShotGun();
     private Weapons monsterWp = new Claw();
-
-   
-    
     private Dice dice = new Dice(101);
 
     /**
@@ -117,7 +114,7 @@ public class Character extends JFrame {
     	Hero hero = new Hero();
     	Monster monster = new Monster();
     	
-    	hero.setWeapon(new Sword());
+    	hero.setWeapon(playerWeapon);
     	monster.setWeapon(monsterWp);
     }
     
@@ -136,6 +133,14 @@ public class Character extends JFrame {
         if(getLife() < 0) {
     		setLife(0);
     	}
+        
+        //Check les maths 4.6
+//        if(computeProtection() < 100) {
+//        	value = (int) computeProtection() / value * 100;
+//        } else {
+//        	value = 0;
+//        }
+        
         return value;
     }
 
@@ -151,12 +156,12 @@ public class Character extends JFrame {
     @Override
     public String toString() {
         if (isAlive()) {
-            return String.format("%-20s %-20s %-20s %-20s %-20s", "[" + getClass().getSimpleName()+ "]", name, "LIFE:" + life,
-                    "STAMINA:" + stamina, "(ALIVE)");
+            return String.format("%-20s %-20s %-20s %-20s %-20s %-20s", "[" + getClass().getSimpleName()+ "]", name, "LIFE:" + life,
+                    "STAMINA:" + stamina, "PROTECTION: " + computeProtection(), "(ALIVE)");
         }
         else {
-            return String.format("%-20s %-20s %-20s %-20s %-20s", "[" + getClass().getSimpleName()+ "]", name, "LIFE:" + life,
-                    "STAMINA:" + stamina, "(DEAD)");
+            return String.format("%-20s %-20s %-20s %-20s %-20s %-20s", "[" + getClass().getSimpleName()+ "]", name, "LIFE:" + life,
+                    "STAMINA:" + stamina, "PROTECTION: " + computeProtection(), "(DEAD)");
         }
     }
 
@@ -164,6 +169,11 @@ public class Character extends JFrame {
         return getLife() > 0;
     }
 
+    
+    //Classe abstraite à implémenter
+    
+    public abstract float computeProtection();
+    
     
     /**
      * GETTERS ET SETTERS

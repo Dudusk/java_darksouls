@@ -22,16 +22,16 @@ public class Hero extends Character{
     }
     
     
-    public static void main(String[] args) {
-    	Hero hero = new Hero();   	
-    	
-    	hero.setArmorItem(new BlackWitchVeil(), 1);
-    	hero.setArmorItem(new DragonSlayerLeggings(), 3);
-    	
-    	//hero.getTotalArmor();
-    	hero.armorToString();
-    	hero.getArmorItems();
-    }
+//    public static void main(String[] args) {
+//    	Hero hero = new Hero();   	
+//    	
+//    	hero.setArmorItem(new BlackWitchVeil(), 1);
+//    	hero.setArmorItem(new DragonSlayerLeggings(), 3);
+//    	
+//    	//hero.getTotalArmor();
+//    	hero.armorToString();
+//    	hero.getArmorItems();
+//    }
 
     
     @Override
@@ -69,8 +69,8 @@ public class Hero extends Character{
     }
     
     
-    public double getTotalArmor() {
-    	double total = 0;
+    public float getTotalArmor() {
+    	float total = 0;
     	
     	for(int i = 0; i<armor.length && i < MAX_ARMOR_PIECES; i++) {
     		if(armor[i] != null) {
@@ -78,8 +78,9 @@ public class Hero extends Character{
     		}
     	}
     	
-    	System.out.println("Total : " + ((int)(total*10))/10.);
-    	return ((int)(total*10))/10.;
+    	//System.out.println("Total : " + ((int)(total*10))/10.);
+    	return total;
+    	//((float)(total*10))/10.;
     }
     
     
@@ -125,6 +126,15 @@ public class Hero extends Character{
     	
     	return tableauArmurePortee;
     }
+
+
+    /**
+     * Override de la méthode de Character
+    */
+	public float computeProtection() {	
+		//setArmorItem(new BlackWitchVeil(), 1);
+		return getTotalArmor();
+	}
     
 }
 

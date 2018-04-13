@@ -35,5 +35,15 @@ public class Monster extends Character {
     public void setSkinThickness(int skinThickness) {
         this.skinThickness = skinThickness;
     }
+
+    
+    /**
+     * Override de la méthode de Character
+     */
+    
+	@Override
+	public float computeProtection() {
+		return getSkinThickness();
+	}
     
 }
