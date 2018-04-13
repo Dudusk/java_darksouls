@@ -3,7 +3,9 @@ package characters;
 public class Monster extends Character {
 
     private static int INSTANCES_COUNT;
-
+    private float skinThickness = 20;
+    
+    
     public Monster() {
         super();
         INSTANCES_COUNT++;
@@ -20,5 +22,18 @@ public class Monster extends Character {
     		attack();
     }
     
+    
+    /**
+     * Getters/setters
+     * @return
+     */
 
+    public float getSkinThickness() {
+        return skinThickness;
+    }
+
+    public void setSkinThickness(int skinThickness) {
+        this.skinThickness = skinThickness;
+    }
+    
 }

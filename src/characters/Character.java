@@ -147,7 +147,8 @@ public class Character extends JFrame {
     public void printStats() {
         System.out.println(toString());
     }
-
+    
+    @Override
     public String toString() {
         if (isAlive()) {
             return String.format("%-20s %-20s %-20s %-20s %-20s", "[" + getClass().getSimpleName()+ "]", name, "LIFE:" + life,

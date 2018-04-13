@@ -2,6 +2,9 @@ package lsg;
 
 import characters.Hero;
 import characters.Monster;
+import lsg.armor.ArmorItem;
+import lsg.armor.BlackWitchVeil;
+import lsg.armor.DragonSlayerLeggings;
 import lsg.helpers.Dice;
 import lsg.weapons.ShotGun;
 import lsg.weapons.Sword;
@@ -15,6 +18,7 @@ public class LearningSoulsGame {
 		
 		Hero hero = new Hero();
 		Monster monster = new Monster();
+		ArmorItem blackMachin = new BlackWitchVeil();
 
 		System.out.println("------------");
 		
@@ -35,6 +39,10 @@ public class LearningSoulsGame {
 			
 		
 		
+		//hero.setArmorItem(blackMachin, 1);
+    	//hero.setArmorItem(new DragonSlayerLeggings(), 2);
+    	
+    	//hero.getArmor();
 		
 		
 //		for (int i = 0; i < 5; i++) {
