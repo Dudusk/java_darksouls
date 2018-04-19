@@ -34,6 +34,7 @@ public class Monster extends Character {
     	if(slot >= 0 && slot <= MAX_TALISMAN_PIECES ) {
     		this.armorTalisman[slot-1] = talisman;
     	}
+    	System.out.print("Talismans : ");
     	for(int i = 0; i<MAX_TALISMAN_PIECES ; i++) {
 			System.out.println(armorTalisman[i]);
 		}

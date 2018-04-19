@@ -23,7 +23,7 @@ public abstract class Character {
 
     //private Sword sword = new Sword();
     //private Weapons playerWeapon = new ShotGun();
-    private Weapons playerWeapon = new ShotGun();
+    private Weapons playerWeapon = new Sword();
     private Weapons monsterWp = new Claw();
     private Dice dice = new Dice(101);
     

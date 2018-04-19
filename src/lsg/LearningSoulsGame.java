@@ -17,10 +17,11 @@ public class LearningSoulsGame {
 		Hero hero = new Hero();
 		hero.setArmorItem(new BlackWitchVeil(), 1);
 		hero.setArmorItem(new BlackWitchVeil(), 3);
-		Monster monster = new Lycanthrope();
+		Monster monster = new Monster();
 		
 		hero.setRing(new RingOfSwords(), 1);
 		hero.setTalisman(new NoonGift(), 1);
+		monster.setTalisman(new NoonGift(), 1);
 		
 
 		System.out.println("------------");
