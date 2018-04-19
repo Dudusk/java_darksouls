@@ -7,11 +7,18 @@ import java.util.Scanner;
 import lsg.armor.ArmorItem;
 import lsg.armor.BlackWitchVeil;
 import lsg.armor.DragonSlayerLeggings;
+import lsg.buffs.rings.Ring;
+import lsg.buffs.talismans.Talisman;
+import lsg.weapons.ShotGun;
 
 public class Hero extends Character{
 	
 	private static int MAX_ARMOR_PIECES = 3;
+	private static int MAX_RING_PIECES = 2;
+	private static int MAX_TALISMAN_PIECES = 1;
 	private ArmorItem armor[] = new ArmorItem[MAX_ARMOR_PIECES];
+	private Ring armorRings[] = new Ring[MAX_ARMOR_PIECES];
+	private Talisman armorTalisman[] = new Talisman[MAX_ARMOR_PIECES];
 	
     public Hero() {
         super();
@@ -19,6 +26,7 @@ public class Hero extends Character{
         setLife(100);
         setStamina(50);
         refresh();
+        //setWeapon(new ShotGun());
     }
     
     
@@ -37,7 +45,7 @@ public class Hero extends Character{
     @Override
     public void fight1v1() {
     	
-    	System.out.println("Hit enter \t key for \t next move >");
+    	System.out.println("\nHit enter \t key for \t next move >");
     	Scanner sc = new Scanner(System.in);
     	
     	String enterkey = sc.nextLine();
@@ -55,10 +63,45 @@ public class Hero extends Character{
 	    }
     }
     
-    /**
-     * Getter/setters
-     */
     
+    public void setTalisman(Talisman talisman, int slot) {
+    	
+    	// L'objet n'existe pas dans le tableau
+    	if(slot >= 0 && slot <= MAX_TALISMAN_PIECES ) {
+    		this.armorTalisman[slot-1] = talisman;
+    	}
+    	for(int i = 0; i<MAX_TALISMAN_PIECES ; i++) {
+			System.out.println(armorTalisman[i]);
+		}
+    	
+    }
+    
+
+    /**
+     * Setter Ring
+     * @param ring
+     * @param slot
+     */
+    public void setRing(Ring ring, int slot) {
+    	
+    	// L'objet n'existe pas dans le tableau
+    	if(slot >= 0 && slot <= MAX_RING_PIECES ) {
+    		this.armorRings[slot-1] = ring;
+    	}
+    	
+//    	for(int i = 0; i<MAX_RING_PIECES ; i++) {
+//    		System.out.println(armorRings[i]);
+//    	}
+    	
+
+    }
+    
+    
+    /**
+     * Setter Armor
+     * @param piece
+     * @param slot
+     */
     public void setArmorItem(ArmorItem piece, int slot) {
     	
     	// L'objet n'existe pas dans le tableau
@@ -66,6 +109,12 @@ public class Hero extends Character{
     		this.armor[slot-1] = piece;
     	}
 
+    }
+    
+    
+    public float getPowerBuff() {
+    	
+    	return 0;
     }
     
     

@@ -1,16 +1,13 @@
 package lsg;
 
 import characters.Hero;
+import characters.Lycanthrope;
 import characters.Monster;
-import lsg.armor.ArmorItem;
 import lsg.armor.BlackWitchVeil;
-import lsg.armor.DragonSlayerLeggings;
-import lsg.helpers.Dice;
+import lsg.buffs.rings.RingOfDeath;
+import lsg.buffs.rings.RingOfSwords;
+import lsg.buffs.talismans.MoonStone;
 import lsg.weapons.ShotGun;
-import lsg.weapons.Sword;
-import lsg.weapons.Weapons;
-
-import java.util.Scanner;
 
 public class LearningSoulsGame {
 	
@@ -18,7 +15,11 @@ public class LearningSoulsGame {
 		
 		Hero hero = new Hero();
 		hero.setArmorItem(new BlackWitchVeil(), 1);
-		Monster monster = new Monster();
+		hero.setArmorItem(new BlackWitchVeil(), 3);
+		Monster monster = new Lycanthrope();
+		
+		hero.setRing(new RingOfSwords(), 1);
+		hero.setTalisman(new MoonStone(), 1);
 		
 
 		System.out.println("------------");
@@ -32,8 +33,8 @@ public class LearningSoulsGame {
 			hero.getHitWith(monster.getDegats());
 		}
 		
-		if(!monster.isAlive()) {
-			System.out.println("\n--- \t" + hero.getName() + " WINS !!! \t ---");
+		if(!monster.isAlive() || monster.getStamina() <= 0) {
+			System.out.println("\n--- \t" + hero.getName() + " WINS !!! (Stam Monster: " + monster.getStamina() + " | MonsterLife:  " + monster.getLife() + ") \t ---");
 		} else if(!hero.isAlive()) {
 			System.out.println("\n--- \t" + monster.getName() + " WINS !!! \t ---");
 		}

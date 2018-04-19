@@ -22,11 +22,15 @@ public abstract class Character {
     private int degats;
 
     //private Sword sword = new Sword();
-    private Weapons playerWeapon = new ShotGun();
+    //private Weapons playerWeapon = new ShotGun();
+    private Weapons playerWeapon = new Sword();
     private Weapons monsterWp = new Claw();
     private Dice dice = new Dice(101);
+    
+    private int attack;
 
-    /**
+   
+	/**
      * METHODES
      * Constructeur
      */
@@ -35,10 +39,12 @@ public abstract class Character {
     }
 
 
+   
     /**
      * Attaque avec l'arme
+     * @param weapon
+     * @return
      */
-
     private int attackWith(Weapons weapon) {
     	
         //Get la prÃ©cision
@@ -56,17 +62,30 @@ public abstract class Character {
         } else {
             degats = Math.round(((precision / 100f) * (weapon.getMaxDamage() - weapon.getMinDamage())) + weapon.getMinDamage());
         }
+        
+        if (computeProtection() >= 100) {
+        	degats = 0;
+        }
 
         // baisse de la stamina après chaque coup
         if (this.stamina >= weapon.getStamCost()) {
             this.stamina -= weapon.getStamCost();
+            this.attack = this.degats;
         } else {
             float pourcentage = this.stamina / weapon.getStamCost() * 100;
             this.stamina = 0;
             degats = Math.round(pourcentage * degats);
+            
+        }
+        
+        /**
+         * A CALCULER
+         */
+        if(computeProtection() < 100 && computeProtection() > 0) {
+        	degats = Math.round(((computeProtection() / 100f) * (this.degats)));
         }
         //System.out.println("Precision : " + precision);
-        System.out.println(" !!! " + getName() + " attaque son adversaire avec " + weapon + " (" + degats + ") !!!" );
+        System.out.println(" !!! " + getName() + " attaque son adversaire avec " + weapon.getName() + " (ATK : " + attack + " | DMG: " + degats + ") !!!" );
         //System.out.println("Attaque avec " + weapon + " > " + degats);
         if(isAlive()) {
         	weapon.use();
@@ -74,6 +93,9 @@ public abstract class Character {
         return degats;
     }
     
+    /**
+     * Attaque
+     */
     public void attack(){
         if (getClass().getName().equals("characters.Hero")) {
         	setWeapon(playerWeapon);
@@ -91,14 +113,14 @@ public abstract class Character {
 
     
     public void fight1v1() {
-    	System.out.println("\n\nHit enter \t key for \t next move >\n");
+    	System.out.println("---> Hit enter \t key for \t next move >\r");
     	Scanner sc = new Scanner(System.in);
     	
     	String enterkey = sc.nextLine();
     	
     	// Touche entrée
     	while(!enterkey.equals("")) {
-    		System.out.println("\n\nHit enter \t key for \t next move >\n");
+    		System.out.println("---> Hit enter \t key for \t next move >\r");
     		enterkey = sc.nextLine();
     	}
     	
@@ -178,6 +200,10 @@ public abstract class Character {
     /**
      * GETTERS ET SETTERS
      */
+    
+    public int getAttack() {
+		return attack;
+	}
 
     public int getDegats() {
         return degats;
