@@ -18,7 +18,7 @@ public class Hero extends Character{
 	private static int MAX_TALISMAN_PIECES = 1;
 	private ArmorItem armor[] = new ArmorItem[MAX_ARMOR_PIECES];
 	private Ring armorRings[] = new Ring[MAX_ARMOR_PIECES];
-	private Talisman armorTalisman[] = new Talisman[MAX_ARMOR_PIECES];
+	private Talisman armorTalisman[] = new Talisman[MAX_TALISMAN_PIECES];
 	
     public Hero() {
         super();
@@ -119,21 +119,19 @@ public class Hero extends Character{
     
     
     public float getPower() {
-    	// TODO Auto-generated method stub
-//    			float ringBuff = 0;
-//    			for(int i = 0 ; i<MAX_RING_PIECES ; i++) {
-//    				ringBuff += armorRings[i].computeBuffValue();
-//    			}
-    	
-    	
     	
     	float total = 0;
     	
     	for(int i = 0; i<armorRings.length && i < MAX_RING_PIECES; i++) {
     		if(armorRings[i] != null) {
-        		total += armorRings[i].getPower();
-//        		total += armorRings[i].computeBuffValue(); // <== Comment ça marche le système Hero ?
+        		total += armorRings[i].computeBuffValue();
     		}
+    	}
+    	
+    	for(int i = 0; i<armorTalisman.length && i < MAX_TALISMAN_PIECES; i++) {
+	    	if(armorTalisman[i] != null) {
+				total += armorTalisman[i].computeBuffValue();
+			}
     	}
     	
     	return total;
