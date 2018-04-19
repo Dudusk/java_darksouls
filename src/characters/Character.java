@@ -23,7 +23,7 @@ public abstract class Character {
 
     //private Sword sword = new Sword();
     //private Weapons playerWeapon = new ShotGun();
-    private Weapons playerWeapon = new Sword();
+    private Weapons playerWeapon = new ShotGun();
     private Weapons monsterWp = new Claw();
     private Dice dice = new Dice(101);
     
@@ -179,11 +179,11 @@ public abstract class Character {
     public String toString() {
         if (isAlive()) {
             return String.format("%-20s %-20s %-20s %-20s %-20s %-20s", "[" + getClass().getSimpleName()+ "]", name, "LIFE:" + life,
-                    "STAMINA:" + stamina, "PROTECTION: " + computeProtection(), "(ALIVE)");
+                    "STAMINA:" + stamina, "PROTECTION: " + computeProtection() + "\t BUFF: " + computeBuff(), "(ALIVE)");
         }
         else {
             return String.format("%-20s %-20s %-20s %-20s %-20s %-20s", "[" + getClass().getSimpleName()+ "]", name, "LIFE:" + life,
-                    "STAMINA:" + stamina, "PROTECTION: " + computeProtection(), "(DEAD)");
+                    "STAMINA:" + stamina, "PROTECTION: " + computeProtection() + "\t BUFF: " + computeBuff(), "(DEAD)");
         }
     }
 
@@ -195,6 +195,7 @@ public abstract class Character {
     //Classe abstraite à implémenter
     
     public abstract float computeProtection();
+    public abstract float computeBuff();
     
     
     /**

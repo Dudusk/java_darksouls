@@ -118,6 +118,28 @@ public class Hero extends Character{
     }
     
     
+    public float getPower() {
+    	// TODO Auto-generated method stub
+//    			float ringBuff = 0;
+//    			for(int i = 0 ; i<MAX_RING_PIECES ; i++) {
+//    				ringBuff += armorRings[i].computeBuffValue();
+//    			}
+    	
+    	
+    	
+    	float total = 0;
+    	
+    	for(int i = 0; i<armorRings.length && i < MAX_RING_PIECES; i++) {
+    		if(armorRings[i] != null) {
+        		total += armorRings[i].getPower();
+//        		total += armorRings[i].computeBuffValue(); // <== Comment ça marche le système Hero ?
+    		}
+    	}
+    	
+    	return total;
+    }
+    
+    
     public float getTotalArmor() {
     	float total = 0;
     	
@@ -183,6 +205,12 @@ public class Hero extends Character{
 	public float computeProtection() {	
 		//setArmorItem(new BlackWitchVeil(), 1);
 		return getTotalArmor();
+	}
+
+
+	@Override
+	public float computeBuff() {
+		return getPower();
 	}
     
 }

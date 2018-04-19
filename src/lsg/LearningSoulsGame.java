@@ -7,6 +7,7 @@ import lsg.armor.BlackWitchVeil;
 import lsg.buffs.rings.RingOfDeath;
 import lsg.buffs.rings.RingOfSwords;
 import lsg.buffs.talismans.MoonStone;
+import lsg.buffs.talismans.NoonGift;
 import lsg.weapons.ShotGun;
 
 public class LearningSoulsGame {
@@ -19,7 +20,7 @@ public class LearningSoulsGame {
 		Monster monster = new Lycanthrope();
 		
 		hero.setRing(new RingOfSwords(), 1);
-		hero.setTalisman(new MoonStone(), 1);
+		hero.setTalisman(new NoonGift(), 1);
 		
 
 		System.out.println("------------");

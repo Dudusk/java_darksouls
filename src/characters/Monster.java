@@ -45,5 +45,11 @@ public class Monster extends Character {
 	public float computeProtection() {
 		return getSkinThickness();
 	}
+
+	@Override
+	public float computeBuff() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
     
 }
