@@ -28,6 +28,7 @@ public abstract class Character {
     private Dice dice = new Dice(101);
     
     private int attack;
+    
 
    
 	/**
@@ -62,12 +63,8 @@ public abstract class Character {
         } else {
             degats = Math.round(((precision / 100f) * (weapon.getMaxDamage() - weapon.getMinDamage())) + weapon.getMinDamage());
         }
-        
-        if (computeProtection() >= 100) {
-        	degats = 0;
-        }
 
-        // baisse de la stamina après chaque coup
+        // baisse de la stamina aprï¿½s chaque coup
         if (this.stamina >= weapon.getStamCost()) {
             this.stamina -= weapon.getStamCost();
             this.attack = this.degats;
@@ -78,17 +75,11 @@ public abstract class Character {
             
         }
         
-        /**
-         * A CALCULER
-         */
-        if(computeProtection() < 100 && computeProtection() > 0) {
-        	degats = Math.round(((computeProtection() / 100f) * (this.degats)));
-        }
         //System.out.println("Precision : " + precision);
         System.out.println(" !!! " + getName() + " attaque son adversaire avec " + weapon.getName() + " (ATK : " + attack + " | DMG: " + degats + ") !!!" );
         //System.out.println("Attaque avec " + weapon + " > " + degats);
         if(isAlive()) {
-        	weapon.use();
+        		weapon.use();
         }
         return degats;
     }
@@ -118,7 +109,7 @@ public abstract class Character {
     	
     	String enterkey = sc.nextLine();
     	
-    	// Touche entrée
+    	// Touche entrï¿½e
     	while(!enterkey.equals("")) {
     		System.out.println("---> Hit enter \t key for \t next move >\r");
     		enterkey = sc.nextLine();
@@ -147,21 +138,22 @@ public abstract class Character {
     
 
     /**
-     * Enlève de la vie
+     * Enlï¿½ve de la vie
      */
 
     public int getHitWith(int value){
+    	
+	    	if (computeProtection() >= 100) {
+	    		value = 0;
+	    } else {
+	    		value = Math.round(value * (1 - (computeProtection()/100)));
+	    }
+    	
+    	
         life = (getLife() < 0) ? 0 : getLife() - value ;
         if(getLife() < 0) {
-    		setLife(0);
-    	}
-        
-        //Check les maths 4.6
-//        if(computeProtection() < 100) {
-//        	value = (int) computeProtection() / value * 100;
-//        } else {
-//        	value = 0;
-//        }
+    			setLife(0);
+    		}
         
         return value;
     }
@@ -192,7 +184,7 @@ public abstract class Character {
     }
 
     
-    //Classe abstraite à implémenter
+    //Classe abstraite ï¿½ implï¿½menter
     
     public abstract float computeProtection();
     public abstract float computeBuff();
