@@ -3,7 +3,6 @@ package lsg;
 import characters.Hero;
 import characters.Monster;
 import lsg.helpers.Dice;
-import lsg.weapons.ShotGun;
 import lsg.weapons.Sword;
 import lsg.weapons.Weapons;
 
