@@ -74,6 +74,7 @@ public abstract class Character {
             degats = Math.round(pourcentage * degats);
         }
 
+
         if (computeBuff()>0) {
             degats = Math.round(degats + (degats * (computeBuff()/100f)));
         }
