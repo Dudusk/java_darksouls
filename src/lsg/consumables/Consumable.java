@@ -4,7 +4,7 @@ public class Consumable {
 
     private String name;
     private int capacity;
-    private int stat;
+    private String stat;
 
 
     public String getName() {
@@ -12,7 +12,10 @@ public class Consumable {
     }
 
 
-    public Consumable() {
+    /**
+     * Constructeur de Consumable
+     */
+    public Consumable(String name, int capacity, String stat) {
         this.name = name;
         this.capacity = capacity;
         this.stat = stat;
@@ -36,11 +39,11 @@ public class Consumable {
         this.capacity = capacity;
     }
 
-    public int getStat() {
+    public String getStat() {
         return stat;
     }
 
-    public void setStat(int stat) {
+    public void setStat(String stat) {
         this.stat = stat;
     }
 

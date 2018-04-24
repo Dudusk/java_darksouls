@@ -1,4 +1,4 @@
 package lsg.consumables.food;
 
-public class Hamburger {
+public class Hamburger extends Food {
 }
