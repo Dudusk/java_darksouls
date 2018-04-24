@@ -29,6 +29,7 @@ public abstract class Character {
     
     private int attack;
 
+
    
 	/**
      * METHODES
@@ -63,7 +64,6 @@ public abstract class Character {
             degats = Math.round(((precision / 100f) * (weapon.getMaxDamage() - weapon.getMinDamage())) + weapon.getMinDamage());
         }
 
-
         // baisse de la stamina apres chaque coup
         if (this.stamina >= weapon.getStamCost()) {
             this.stamina -= weapon.getStamCost();
@@ -79,11 +79,12 @@ public abstract class Character {
             degats = Math.round(degats + (degats * (computeBuff()/100f)));
         }
 
+
         //System.out.println("Precision : " + precision);
         System.out.println(" !!! " + getName() + " attaque son adversaire avec " + weapon.getName() + " (ATK : " + attack + " | DMG: " + degats + ") !!!" );
         //System.out.println("Attaque avec " + weapon + " > " + degats);
         if(isAlive()) {
-        	weapon.use();
+        		weapon.use();
         }
         return degats;
     }
@@ -146,24 +147,19 @@ public abstract class Character {
      */
 
     public int getHitWith(int value){
+
+	    	if (computeProtection() >= 100) {
+	    		value = 0;
+	    } else {
+	    		value = Math.round(value * (1 - (computeProtection()/100)));
+	    }
+
+
         life = (getLife() < 0) ? 0 : getLife() - value ;
         if(getLife() < 0) {
-    		setLife(0);
-    	}
+    			setLife(0);
+    		}
 
-        if (computeProtection() >= 100) {
-            degats = 0;
-        } else {
-
-        }
-        
-        //Check les maths 4.6
-//        if(computeProtection() < 100) {
-//        	value = (int) computeProtection() / value * 100;
-//        } else {
-//        	value = 0;
-//        }
-        
         return value;
     }
 
