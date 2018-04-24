@@ -1,17 +1,19 @@
 package lsg.weapons;
 
-public class Weapons {
+public class Weapon {
     private String name;
     private int minDamage;
     private int maxDamage;
     private int stamCost;
     private int durability;
 
-    public Weapons(){
+    private static String DURABILITY_STAT_STRING = "durability";
+
+    public Weapon(){
         super();
     }
 
-    public Weapons(String name, int minDamage, int maxDamage, int stamCost, int durability) {
+    public Weapon(String name, int minDamage, int maxDamage, int stamCost, int durability) {
         this.name = name;
         this.minDamage = minDamage;
         this.maxDamage = maxDamage;
@@ -36,7 +38,7 @@ public class Weapons {
     @Override
     public String toString() {
         return getName() + " (Min: " + getMinDamage() + ", Max: " + getMaxDamage() + ", Stam: " + getStamCost() +
-                ", Durability: " + getDurability() + ")";
+                "," + DURABILITY_STAT_STRING + ":" + getDurability() + ")";
     }
 
     /*

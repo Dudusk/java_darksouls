@@ -1,16 +1,11 @@
 package characters;
 
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import java.util.Scanner;
-
-import javax.swing.JFrame;
 
 import lsg.helpers.Dice;
 import lsg.weapons.Claw;
-import lsg.weapons.ShotGun;
 import lsg.weapons.Sword;
-import lsg.weapons.Weapons;
+import lsg.weapons.Weapon;
 
 public abstract class Character {
     private String name;
@@ -22,12 +17,18 @@ public abstract class Character {
     private int degats;
 
     //private Sword sword = new Sword();
-    //private Weapons playerWeapon = new ShotGun();
-    private Weapons playerWeapon = new Sword();
-    private Weapons monsterWp = new Claw();
+    //private Weapon playerWeapon = new ShotGun();
+    private Weapon playerWeapon = new Sword();
+    private Weapon monsterWp = new Claw();
     private Dice dice = new Dice(101);
     
     private int attack;
+
+    private static String LIFE_STAT_STRING = "life";
+    private static String STAM_STAT_STRING = "stamina";
+    private static String PROTECT_STAT_STRING = "protection";
+    private static String BUFF_STAT_STRING = "buff";
+
 
 
    
@@ -46,7 +47,7 @@ public abstract class Character {
      * @param weapon
      * @return
      */
-    private int attackWith(Weapons weapon) {
+    private int attackWith(Weapon weapon) {
     	
         //Get la précision
         int precision = this.dice.roll();
@@ -174,12 +175,12 @@ public abstract class Character {
     @Override
     public String toString() {
         if (isAlive()) {
-            return String.format("%-20s %-20s %-20s %-20s %-20s %-20s", "[" + getClass().getSimpleName()+ "]", name, "LIFE:" + life,
-                    "STAMINA:" + stamina, "PROTECTION: " + computeProtection() + "\t BUFF: " + computeBuff(), "(ALIVE)");
+            return String.format("%-20s %-20s %-20s %-20s %-20s %-20s", "[" + getClass().getSimpleName()+ "]", name, LIFE_STAT_STRING + ":" + life,
+                    STAM_STAT_STRING + ":" + stamina, "PROTECTION: " + computeProtection() + "\t BUFF: " + computeBuff(), "(ALIVE)");
         }
         else {
-            return String.format("%-20s %-20s %-20s %-20s %-20s %-20s", "[" + getClass().getSimpleName()+ "]", name, "LIFE:" + life,
-                    "STAMINA:" + stamina, "PROTECTION: " + computeProtection() + "\t BUFF: " + computeBuff(), "(DEAD)");
+            return String.format("%-20s %-20s %-20s %-20s %-20s %-20s", "[" + getClass().getSimpleName()+ "]", name, LIFE_STAT_STRING + ":" + life,
+                    STAM_STAT_STRING + ":" + stamina, "PROTECTION: " + computeProtection() + "\t BUFF: " + computeBuff(), "(DEAD)");
         }
     }
 
@@ -210,11 +211,11 @@ public abstract class Character {
         this.degats = degats;
     }
 
-    public Weapons getWeapon() {
+    public Weapon getWeapon() {
         return playerWeapon;
     }
 
-    public void setWeapon(Weapons weapon) {
+    public void setWeapon(Weapon weapon) {
         this.playerWeapon = weapon;
     }
 
