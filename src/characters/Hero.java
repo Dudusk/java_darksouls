@@ -49,10 +49,10 @@ public class Hero extends Character{
     	Scanner sc = new Scanner(System.in);
     	
     	String enterkey = sc.nextLine();
-    	// Touche entrée
+    	// Touche entrï¿½e
     	
     	while(!enterkey.equals("")) {
-    		System.out.println("Appuyez sur la touche entrée !");
+    		System.out.println("Appuyez sur la touche entrï¿½e !");
     		enterkey = sc.nextLine();
     	}
     	
@@ -89,9 +89,9 @@ public class Hero extends Character{
     		this.armorRings[slot-1] = ring;
     	}
     	
-//    	for(int i = 0; i<MAX_RING_PIECES ; i++) {
-//    		System.out.println(armorRings[i]);
-//    	}
+    	for(int i = 0; i<MAX_RING_PIECES ; i++) {
+    		System.out.println(armorRings[i]);
+    	}
     	
 
     }
@@ -198,7 +198,7 @@ public class Hero extends Character{
 
 
     /**
-     * Override de la méthode de Character
+     * Override de la mï¿½thode de Character
     */
 	public float computeProtection() {	
 		//setArmorItem(new BlackWitchVeil(), 1);

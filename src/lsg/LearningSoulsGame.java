@@ -12,6 +12,7 @@ import lsg.weapons.ShotGun;
 
 public class LearningSoulsGame {
 	
+	
 	public static void main(String[] args) {
 		
 		Hero hero = new Hero();
@@ -51,7 +52,7 @@ public class LearningSoulsGame {
 		
 //		for (int i = 0; i < 5; i++) {
 //			
-//			// Le héro
+//			// Le hï¿½ro
 //			hero.refresh();
 //			if (hero.isAlive() && monster.isAlive()) {
 //				hero.attack();
