@@ -79,7 +79,6 @@ public abstract class Character {
             degats = Math.round(degats + (degats * (computeBuff()/100f)));
         }
 
-
         //System.out.println("Precision : " + precision);
         System.out.println(" !!! " + getName() + " attaque son adversaire avec " + weapon.getName() + " (ATK : " + attack + " | DMG: " + degats + ") !!!" );
         //System.out.println("Attaque avec " + weapon + " > " + degats);
