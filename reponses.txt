@@ -1,2 +1,0 @@
-TP3 :
-4.2) Les classe Hero et Monster présente une erreur car elles héritent de la classe Character, qui demande obligatoirement de réécrire la méthode abstraite computeProtection dans chacune des classes.

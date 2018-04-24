@@ -62,12 +62,9 @@ public abstract class Character {
         } else {
             degats = Math.round(((precision / 100f) * (weapon.getMaxDamage() - weapon.getMinDamage())) + weapon.getMinDamage());
         }
-        
-        if (computeProtection() >= 100) {
-        	degats = 0;
-        }
 
-        // baisse de la stamina après chaque coup
+
+        // baisse de la stamina apres chaque coup
         if (this.stamina >= weapon.getStamCost()) {
             this.stamina -= weapon.getStamCost();
             this.attack = this.degats;
@@ -75,15 +72,12 @@ public abstract class Character {
             float pourcentage = this.stamina / weapon.getStamCost() * 100;
             this.stamina = 0;
             degats = Math.round(pourcentage * degats);
-            
         }
-        
-        /**
-         * A CALCULER
-         */
-        if(computeProtection() < 100 && computeProtection() > 0) {
-        	degats = Math.round(((computeProtection() / 100f) * (this.degats)));
+
+        if (computeBuff()>0) {
+            degats = Math.round(degats + (degats * (computeBuff()/100f)));
         }
+
         //System.out.println("Precision : " + precision);
         System.out.println(" !!! " + getName() + " attaque son adversaire avec " + weapon.getName() + " (ATK : " + attack + " | DMG: " + degats + ") !!!" );
         //System.out.println("Attaque avec " + weapon + " > " + degats);
@@ -118,7 +112,7 @@ public abstract class Character {
     	
     	String enterkey = sc.nextLine();
     	
-    	// Touche entrée
+    	// Touche entrï¿½e
     	while(!enterkey.equals("")) {
     		System.out.println("---> Hit enter \t key for \t next move >\r");
     		enterkey = sc.nextLine();
@@ -147,7 +141,7 @@ public abstract class Character {
     
 
     /**
-     * Enlève de la vie
+     * Enlï¿½ve de la vie
      */
 
     public int getHitWith(int value){
@@ -155,6 +149,12 @@ public abstract class Character {
         if(getLife() < 0) {
     		setLife(0);
     	}
+
+        if (computeProtection() >= 100) {
+            degats = 0;
+        } else {
+
+        }
         
         //Check les maths 4.6
 //        if(computeProtection() < 100) {
@@ -192,7 +192,7 @@ public abstract class Character {
     }
 
     
-    //Classe abstraite à implémenter
+    //Classe abstraite ï¿½ implï¿½menter
     
     public abstract float computeProtection();
     public abstract float computeBuff();
