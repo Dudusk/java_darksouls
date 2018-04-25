@@ -51,7 +51,7 @@ public class Consumable {
     @Override
     public String toString() {
 
-            return String.format("%-20s %-20s %-20s %-20s %-20s %-20s", name + "[" + capacity + stat + " point(s) ]");
+            return  name + "[" + capacity + stat + " point(s) ]";
     }
 
 }
