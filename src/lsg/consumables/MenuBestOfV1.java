@@ -23,14 +23,20 @@ public class MenuBestOfV1 {
         String ligne = "";
 
         for (int i = 0; i < menu.length; i++) {
-            ligne = (i+1) + " " + menu[i];
+            ligne = (i+1) + ": " + menu[i];
+            System.out.println(ligne);
         }
+        
+        menu[1].use();
+        
         return ligne;
     }
 
     @Override
     public String toString() {
-        return getClass().getSimpleName() + "\n" + listeMenu();
+    	System.out.println(getClass().getSimpleName() + " :");
+        return String.format("" + getClass().getSimpleName() + "\n" + listeMenu());
+        //getClass().getSimpleName() + "\n" + listeMenu();
     }
 
     public static void main(String[] args) {

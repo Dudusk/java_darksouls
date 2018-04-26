@@ -7,11 +7,6 @@ public class Consumable {
     private String stat;
 
 
-    public String getName() {
-        return name;
-    }
-
-
     /**
      * Constructeur de Consumable
      */
@@ -21,24 +16,46 @@ public class Consumable {
         this.stat = stat;
 
     }
+    
+    /**
+     * Méthode qui est déclanché quand on utilise un consommable
+     * @return
+     */
+    public int use() {
+    	System.out.println("\n#### " + name + " a été utilisé. ####\n");
+    	capacity = 0;
+    	return capacity;
+    }
 
 
     /**
      * GETTERS AND SETTERS
      * @param name
      */
+    public String getName() {
+        return name;
+    }
+    
     public void setName(String name) {
         this.name = name;
     }
-
+    
+    /**
+     * GETTERS AND SETTERS
+     * @param capacity
+     */
     public int getCapacity() {
         return capacity;
     }
-
+    
     public void setCapacity(int capacity) {
         this.capacity = capacity;
     }
 
+    /**
+     * GETTERS AND SETTERS
+     * @param stat
+     */
     public String getStat() {
         return stat;
     }
@@ -51,7 +68,7 @@ public class Consumable {
     @Override
     public String toString() {
 
-            return  name + "[" + capacity + stat + " point(s) ]";
+            return  name + " [ " + capacity + " " + stat + " point(s) ]";
     }
 
 }

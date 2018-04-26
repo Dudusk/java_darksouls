@@ -1,0 +1,3 @@
+TP4 - 3.4
+Au niveau de l'itération, la doc nous explique que le rendu est dans n'importe quel ordre. 
+De plus, il y a la présence d'un "fail-fast", ce qui veut dire que si le set est modifié après la création de l'itérator, il envoit une erreur : ConcurrentModificationException. Le Fail-fast est utilisé pour detecter des bugs.
