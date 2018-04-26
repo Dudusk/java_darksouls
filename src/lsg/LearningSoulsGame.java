@@ -8,7 +8,10 @@ import lsg.buffs.rings.RingOfDeath;
 import lsg.buffs.rings.RingOfSwords;
 import lsg.buffs.talismans.MoonStone;
 import lsg.buffs.talismans.NoonGift;
+import lsg.consumables.MenuBestOfV4;
+import lsg.consumables.drinks.Coffe;
 import lsg.weapons.ShotGun;
+import lsg.weapons.Weapon;
 
 public class LearningSoulsGame {
 	
@@ -22,6 +25,10 @@ public class LearningSoulsGame {
 		hero.setRing(new RingOfSwords(), 1);
 		hero.setTalisman(new NoonGift(), 1);
 		monster.setTalisman(new NoonGift(), 1);
+		
+		// hero.use(new Coffe());
+		
+		hero.use(new Coffe());
 		
 
 		System.out.println("------------");
@@ -69,6 +76,20 @@ public class LearningSoulsGame {
 //
 //		}
 		
+	}
+	
+	public void createExhaustedHero() {
+		Hero hero = new Hero();
+		
+		hero.getHitWith(99);
+		hero.setWeapon(new Weapon("Grosse arme", 0, 0, 1000, 100));
+	}
+	
+	public void aTable() {
+		MenuBestOfV4 menu = new MenuBestOfV4();
+		Hero hero;
+		
+		//hero.use(menu.listeMenu());
 	}
 	
 }

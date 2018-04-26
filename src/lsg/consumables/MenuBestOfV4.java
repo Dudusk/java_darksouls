@@ -28,7 +28,7 @@ public class MenuBestOfV4 extends LinkedHashSet<Consumable> {
         while(itr.hasNext()){
         	i++;
         	ligne = i + ": " + itr.next();
-        	System.out.println(ligne);  
+        	System.out.println(ligne);
         }  
         
         return ligne;

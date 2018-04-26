@@ -2,6 +2,9 @@ package characters;
 
 import java.util.Scanner;
 
+import lsg.consumables.Consumable;
+import lsg.consumables.drinks.Drink;
+import lsg.consumables.food.Food;
 import lsg.helpers.Dice;
 import lsg.weapons.Claw;
 import lsg.weapons.Sword;
@@ -141,26 +144,62 @@ public abstract class Character {
     	fight1v1();
     }
     
+    
 
     /**
      * Enl�ve de la vie
      */
-
     public int getHitWith(int value){
 
-	    	if (computeProtection() >= 100) {
-	    		value = 0;
+    	if (computeProtection() >= 100) {
+    		value = 0;
 	    } else {
-	    		value = Math.round(value * (1 - (computeProtection()/100)));
+    		value = Math.round(value * (1 - (computeProtection()/100)));
 	    }
-
 
         life = (getLife() < 0) ? 0 : getLife() - value ;
         if(getLife() < 0) {
-    			setLife(0);
-    		}
+			setLife(0);
+		}
 
         return value;
+    }
+    
+    
+    /**
+     * Permet de boire, remet donc de la stamina en utilisant un consumable
+     * @param consumable
+     */
+    private void drink(Consumable consumable) {
+    	consumable.use();
+    	System.out.println(consumable.getStat());
+    	//stamina = (stamina + consumable.getCapacity() > maxStamina) ? stamina = maxStamina : stamina + consumable.getCapacity();
+    	stamina += consumable.getCapacity();
+    	System.out.println(getName() + " drinks " + consumable.getStat());
+    	
+    }
+    
+    /**
+     * Permet de manger, remet donc de la vie en utilisant un consumable
+     * @param consumable
+     */
+    private void eat(Consumable consumable) {
+    	consumable.use();
+    	System.out.println(consumable.getStat());
+    	life = (life + consumable.getCapacity() > maxLife) ? life = maxLife : life + consumable.getCapacity();
+    	
+    	System.out.println(getName() + " eats " + consumable.getStat());
+    	
+    }
+    
+    
+    public void use(Consumable consumable) {
+    	if(consumable instanceof Drink) {
+    		drink(consumable);
+    	} else {
+    		eat(consumable);
+    	}
+    	
     }
 
     
