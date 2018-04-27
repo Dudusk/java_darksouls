@@ -20,15 +20,15 @@ public class MenuBestOfV4 extends LinkedHashSet<Consumable> {
     	add(new Whisky());
     }
 
-    public String listeMenu() {
-        String ligne = "";
+    public Consumable listeMenu() {
+        Consumable ligne = null;
         int i = 0;
         Iterator<Consumable> itr= iterator();
         
         while(itr.hasNext()){
         	i++;
-        	ligne = i + ": " + itr.next();
-        	System.out.println(ligne);
+        	ligne = itr.next();
+        	System.out.println(i + ": " + ligne);
         }  
         
         return ligne;

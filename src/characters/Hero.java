@@ -24,7 +24,9 @@ public class Hero extends Character{
         super();
         setName("Ynovator");
         setLife(100);
+        setMaxLife(100);
         setStamina(50);
+        setMaxStamina(50);
         refresh();
         //setWeapon(new ShotGun());
     }

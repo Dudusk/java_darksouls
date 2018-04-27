@@ -3,6 +3,7 @@ package characters;
 import java.util.Scanner;
 
 import lsg.consumables.Consumable;
+import lsg.consumables.RepairKit;
 import lsg.consumables.drinks.Drink;
 import lsg.consumables.food.Food;
 import lsg.helpers.Dice;
@@ -171,12 +172,11 @@ public abstract class Character {
      * @param consumable
      */
     private void drink(Consumable consumable) {
-    	consumable.use();
-    	System.out.println(consumable.getStat());
-    	//stamina = (stamina + consumable.getCapacity() > maxStamina) ? stamina = maxStamina : stamina + consumable.getCapacity();
-    	stamina += consumable.getCapacity();
-    	System.out.println(getName() + " drinks " + consumable.getStat());
     	
+    	System.out.println(getName() + " drinks " + consumable.getCapacity() + " " + consumable.getStat());
+    	stamina = ((stamina + consumable.getCapacity()) > maxStamina) ? stamina = maxStamina : stamina + consumable.getCapacity();
+    	
+    	consumable.use();
     }
     
     /**
@@ -184,23 +184,36 @@ public abstract class Character {
      * @param consumable
      */
     private void eat(Consumable consumable) {
+    	
+    	System.out.println(getName() + " eats " + consumable.getCapacity() + " " + consumable.getStat());
+    	life = ((life + consumable.getCapacity()) > maxLife) ? life = maxLife : life + consumable.getCapacity();
+
     	consumable.use();
-    	System.out.println(consumable.getStat());
-    	life = (life + consumable.getCapacity() > maxLife) ? life = maxLife : life + consumable.getCapacity();
-    	
-    	System.out.println(getName() + " eats " + consumable.getStat());
-    	
+    }
+    
+    /**
+     * Réparation d'une arme avec le kit
+     * @param consumable
+     */
+    private void repairWeaponWith(Consumable consumable) {
+    	System.out.println(getName() + " repairs " + getWeapon() + " with " + consumable.toString());
+    	consumable.use();
     }
     
     
     public void use(Consumable consumable) {
-    	if(consumable instanceof Drink) {
+    	if (consumable instanceof Drink) {
     		drink(consumable);
-    	} else {
+    	} 
+    	if (consumable instanceof Food) {
     		eat(consumable);
+    	}
+    	if (consumable instanceof RepairKit) {
+    		repairWeaponWith(consumable);
     	}
     	
     }
+    
 
     
     /**

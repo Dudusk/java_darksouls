@@ -1,5 +1,7 @@
 package lsg.consumables;
 
+import characters.Hero;
+
 public class Consumable {
 
     private String name;

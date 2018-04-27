@@ -1,5 +1,7 @@
 package lsg.weapons;
 
+import lsg.consumables.RepairKit;
+
 public class Weapon {
     private String name;
     private int minDamage;
@@ -7,7 +9,7 @@ public class Weapon {
     private int stamCost;
     private int durability;
 
-    private static String DURABILITY_STAT_STRING = "durability";
+    public static String DURABILITY_STAT_STRING = "durability";
 
     public Weapon(){
         super();
@@ -22,12 +24,22 @@ public class Weapon {
     }
 
     public void use(){
-        setDurability(1);
+        setDurability(durability -1);
     }
 
     public boolean isBroken(){
         return getDurability() <= 0;
     }
+    
+    /**
+     * Reparation d'une arme avec le kit
+     * @param kit
+     */
+    public void repairWith(RepairKit kit) {
+    	durability += 1;
+    	kit.use();
+    }
+    
 
     /*
      *
@@ -48,7 +60,7 @@ public class Weapon {
      * */
 
     public void setDurability(int durability) {
-        this.durability -= durability;
+        this.durability = durability;
     }
 
     public void setName(String name) {
