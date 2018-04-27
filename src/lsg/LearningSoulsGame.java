@@ -24,6 +24,7 @@ public class LearningSoulsGame {
 		Hero hero = new Hero();
 		Monster monster = new Monster();
 		RepairKit rep = new RepairKit();
+		Hamburger hamb = new Hamburger();
 		
 		hero.setArmorItem(new BlackWitchVeil(), 1);
 		hero.setArmorItem(new BlackWitchVeil(), 3);
@@ -46,7 +47,7 @@ public class LearningSoulsGame {
 			monster.fight1v1();
 			hero.getHitWith(monster.getDegats());
 			
-			hero.use(rep);
+			//hero.use(rep);
 		}
 		
 		

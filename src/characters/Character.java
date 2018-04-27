@@ -6,6 +6,7 @@ import lsg.consumables.Consumable;
 import lsg.consumables.RepairKit;
 import lsg.consumables.drinks.Drink;
 import lsg.consumables.food.Food;
+import lsg.consumables.food.Hamburger;
 import lsg.helpers.Dice;
 import lsg.weapons.Claw;
 import lsg.weapons.Sword;
@@ -26,12 +27,14 @@ public abstract class Character {
     private Weapon monsterWp = new Claw();
     private Dice dice = new Dice(101);
     
+    private Consumable consumable;
     private int attack;
 
     private static String LIFE_STAT_STRING = "life";
     private static String STAM_STAT_STRING = "stamina";
     private static String PROTECT_STAT_STRING = "protection";
     private static String BUFF_STAT_STRING = "buff";
+    private static String BULLET_POINT = "*"; //\u2219
 
 
 
@@ -109,6 +112,7 @@ public abstract class Character {
     
     public void refresh() {
 		printStats();
+		System.out.println(BULLET_POINT + " " + getWeapon() + "\n" + getConsumable());
 	}
 
     
@@ -135,6 +139,7 @@ public abstract class Character {
     public void init() {
     	Hero hero = new Hero();
     	Monster monster = new Monster();
+    	Hamburger hamb = new Hamburger();
     	
     	hero.setWeapon(playerWeapon);
     	monster.setWeapon(monsterWp);
@@ -214,6 +219,12 @@ public abstract class Character {
     	
     }
     
+    /**
+     * Consommation d'objets
+     */
+    public void consume() {
+    	use(consumable);
+    }
 
     
     /**
@@ -251,11 +262,19 @@ public abstract class Character {
      * GETTERS ET SETTERS
      */
     
-    public int getAttack() {
+    public Consumable getConsumable() {
+		return consumable;
+	}
+
+	public void setConsumable(Consumable consumable) {
+		this.consumable = consumable;
+	}
+
+	public int getAttack() {
 		return attack;
 	}
 
-    public int getDegats() {
+	public int getDegats() {
         return degats;
     }
 
