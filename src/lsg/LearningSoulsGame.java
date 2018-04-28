@@ -20,16 +20,36 @@ public class LearningSoulsGame {
 	public static void main(String[] args) {
 		// createExhaustedHero();
 		
+/*
+		//La méthode aTable() que nous n'arrivons pas à instancier. Nous avons donc fait cela pour provuer que ça marche.
 		
+ 		Hero hero = new Hero();
+ 		RepairKit kit = new RepairKit();
+		
+		hero.refresh();
+		
+		hero.getHitWith(99);
+		hero.setWeapon(new Weapon("Grosse arme", 0, 0, 1000, 100));
+		hero.attack();		
+		
+		hero.refresh();
+		
+		hero.use(new Hamburger());
+		hero.use(new Coffe());
+		hero.use(kit);
+		
+		hero.refresh();
+*/
+		
+			
 		Hero hero = new Hero();
 		Monster monster = new Monster();
-		RepairKit rep = new RepairKit();
-		Hamburger hamb = new Hamburger();
 		
 		hero.setArmorItem(new BlackWitchVeil(), 1);
 		hero.setArmorItem(new BlackWitchVeil(), 3);
 		hero.setRing(new RingOfSwords(), 1);
 		hero.setTalisman(new NoonGift(), 1);
+		hero.setConsumable(new Hamburger());
 		
 		monster.setTalisman(new NoonGift(), 1);
 		
@@ -46,8 +66,6 @@ public class LearningSoulsGame {
 			monster.getHitWith(hero.getDegats());
 			monster.fight1v1();
 			hero.getHitWith(monster.getDegats());
-			
-			//hero.use(rep);
 		}
 		
 		
@@ -66,7 +84,7 @@ public class LearningSoulsGame {
 		
 //		for (int i = 0; i < 5; i++) {
 //			
-//			// Le h�ro
+//			// Le h�ro
 //			hero.refresh();
 //			if (hero.isAlive() && monster.isAlive()) {
 //				hero.attack();

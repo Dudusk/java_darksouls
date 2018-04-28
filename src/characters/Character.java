@@ -109,19 +109,38 @@ public abstract class Character {
         }
     }
     
-    
+    /**
+     * Affiche les stats de l'adversaire et du Héro
+     */
     public void refresh() {
 		printStats();
-		System.out.println(BULLET_POINT + " " + getWeapon() + "\n" + getConsumable());
+		System.out.println(BULLET_POINT + " " + getWeapon() + "\n" + BULLET_POINT + " " + getConsumable());
 	}
 
     
     public void fight1v1() {
-    	System.out.println("---> Hit enter \t key for \t next move >\r");
-    	Scanner sc = new Scanner(System.in);
+	Scanner sc = new Scanner(System.in);
     	
-    	String enterkey = sc.nextLine();
+    	System.out.print("---> Hero action for \t next move: (1) attack | (2) consume >\r");
+    	int enterkey = sc.nextInt();
+    	System.out.println(enterkey);
     	
+    	
+    	if(enterkey == 1) {
+    		attack();
+    		refresh();
+    	} 
+    	if(enterkey == 2) {
+    		consume();
+    		refresh();
+    	}
+    	else {
+    		fight1v1();
+    	}
+    	
+    	
+    	
+/*    	
     	// Touche entr�e
     	while(!enterkey.equals("")) {
     		System.out.println("---> Hit enter \t key for \t next move >\r");
@@ -131,6 +150,9 @@ public abstract class Character {
 	    if(enterkey.equals("")){
 	        attack();
 	    }
+*/
+    	
+    	
     }
     
     /**
@@ -178,7 +200,7 @@ public abstract class Character {
      */
     private void drink(Consumable consumable) {
     	
-    	System.out.println(getName() + " drinks " + consumable.getCapacity() + " " + consumable.getStat());
+    	System.out.println(getName() + " drinks " + consumable.getName() + " (" + consumable.getCapacity() + " " + consumable.getStat() + ")");
     	stamina = ((stamina + consumable.getCapacity()) > maxStamina) ? stamina = maxStamina : stamina + consumable.getCapacity();
     	
     	consumable.use();
@@ -190,14 +212,14 @@ public abstract class Character {
      */
     private void eat(Consumable consumable) {
     	
-    	System.out.println(getName() + " eats " + consumable.getCapacity() + " " + consumable.getStat());
+    	System.out.println(getName() + " eats " + consumable.getName() + " (" + consumable.getCapacity() + " " + consumable.getStat() + ")");
     	life = ((life + consumable.getCapacity()) > maxLife) ? life = maxLife : life + consumable.getCapacity();
 
     	consumable.use();
     }
     
     /**
-     * R�paration d'une arme avec le kit
+     * R�paration d'une arme avec le kit
      * @param consumable
      */
     private void repairWeaponWith(Consumable consumable) {
@@ -205,7 +227,10 @@ public abstract class Character {
     	consumable.use();
     }
     
-    
+    /**
+     * Méthode qui utilise le consommable
+     * @param consumable
+     */
     public void use(Consumable consumable) {
     	if (consumable instanceof Drink) {
     		drink(consumable);
@@ -223,7 +248,7 @@ public abstract class Character {
      * Consommation d'objets
      */
     public void consume() {
-    	use(consumable);
+    	use(this.consumable);
     }
 
     

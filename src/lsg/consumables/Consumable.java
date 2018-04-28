@@ -20,11 +20,10 @@ public class Consumable {
     }
     
     /**
-     * Méthode qui est déclanché quand on utilise un consommable
+     * Mï¿½thode qui est dï¿½clanchï¿½ quand on utilise un consommable
      * @return
      */
     public int use() {
-    	System.out.println("\n#### " + name + " a été utilisé. ####\n");
     	capacity = 0;
     	return capacity;
     }

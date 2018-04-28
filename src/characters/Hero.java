@@ -47,22 +47,38 @@ public class Hero extends Character{
     @Override
     public void fight1v1() {
     	
-    	System.out.println("\nHit enter \t key for \t next move >");
     	Scanner sc = new Scanner(System.in);
     	
-    	String enterkey = sc.nextLine();
-    	// Touche entrée
+    	System.out.print("---> Hero action for \t next move: (1) attack | (2) consume >\r");
+    	int enterkey = sc.nextInt();
+    	System.out.println(enterkey);
     	
+    	
+    	if(enterkey == 1) {
+    		attack();
+    		refresh();
+    	} 
+    	if(enterkey == 2) {
+    		consume();
+    		refresh();
+    	}
+    	else {
+    		fight1v1();
+    	}
+    	
+    	
+/*    	
+    	// Touche entrï¿½e
     	while(!enterkey.equals("")) {
-    		System.out.println("Appuyez sur la touche entrée !");
+    		System.out.println("---> Hit enter \t key for \t next move >\r");
     		enterkey = sc.nextLine();
     	}
     	
 	    if(enterkey.equals("")){
-	    	refresh();
-	    	if(isAlive())
-	    		attack();
+	        attack();
 	    }
+*/
+    	
     }
     
     
@@ -200,7 +216,7 @@ public class Hero extends Character{
 
 
     /**
-     * Override de la méthode de Character
+     * Override de la mï¿½thode de Character
     */
 	public float computeProtection() {	
 		//setArmorItem(new BlackWitchVeil(), 1);
