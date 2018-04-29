@@ -51,14 +51,13 @@ public class Hero extends Character{
     	
     	System.out.print("---> Hero action for \t next move: (1) attack | (2) consume >\r");
     	int enterkey = sc.nextInt();
-    	System.out.println(enterkey);
+    	//System.out.println(enterkey);
     	
     	
     	if(enterkey == 1) {
     		attack();
     		refresh();
-    	} 
-    	if(enterkey == 2) {
+    	} else if(enterkey == 2) {
     		consume();
     		refresh();
     	}

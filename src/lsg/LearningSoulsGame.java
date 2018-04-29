@@ -41,7 +41,8 @@ public class LearningSoulsGame {
 		hero.refresh();
 */
 		
-			
+		title();
+		
 		Hero hero = new Hero();
 		Monster monster = new Monster();
 		
@@ -121,5 +122,11 @@ public class LearningSoulsGame {
 		}
 		
 	}
+	
+	public static void title(){
+    	System.out.println("#########################################\n"
+    					 + "# \tTHE LEARNING SOULS GAME \t#"
+    					 + "\n#########################################\n");
+    }
 	
 }
