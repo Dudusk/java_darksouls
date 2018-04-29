@@ -1,5 +1,10 @@
 package lsg.buffs.talismans;
 
+/**
+ * Cette classe définit les caractéristiques du talisman
+ * @author Tanguy.Pave
+ * @author Jade.Llanes
+ */
 public class MoonStone extends Talisman {
 	
 	/**

@@ -15,6 +15,12 @@ import lsg.consumables.food.Hamburger;
 import lsg.weapons.ShotGun;
 import lsg.weapons.Weapon;
 
+/**
+ * Cette classe est la classe main du jeu
+ * Certaines modifications ont ete apportees car pas tout n'est fonctionnel.
+ * @author Tanguy.Pave
+ * @author Jade.Llanes
+ */
 public class LearningSoulsGame {
 	
 	public static void main(String[] args) {
@@ -82,29 +88,14 @@ public class LearningSoulsGame {
 		
     	//hero.getArmor();
 		
-		
-//		for (int i = 0; i < 5; i++) {
-//			
-//			// Le h�ro
-//			hero.refresh();
-//			if (hero.isAlive() && monster.isAlive()) {
-//				hero.attack();
-//				monster.getHitWith(hero.getDegats());
-//			}
-//
-//			// Le monstre
-//			monster.refresh();
-//			if (monster.isAlive() && hero.isAlive()) {
-//				monster.attack();
-//				hero.getHitWith(monster.getDegats());
-//			}
-//			
-			
-//
-//		}
+
 		
 	}
 	
+	/**
+	 * Méthode qui permet de créer un héro avec une arme pour utiliser la stamine et la vie. Le but étant de tester 
+	 * le fonctionnement de la vie et stamina.
+	 */
 	public static void createExhaustedHero() {
 		Hero hero = new Hero();
 		
@@ -113,6 +104,9 @@ public class LearningSoulsGame {
 		hero.attack();
 	}
 	
+	/**
+	 * Permet de manger un menu
+	 */
 	public static void aTable() {
 		MenuBestOfV4 menu = new MenuBestOfV4();
 		Hero hero = null;
@@ -123,6 +117,9 @@ public class LearningSoulsGame {
 		
 	}
 	
+	/**
+	 * Permet d'affiher le titre du jeu
+	 */
 	public static void title(){
     	System.out.println("#########################################\n"
     					 + "# \tTHE LEARNING SOULS GAME \t#"

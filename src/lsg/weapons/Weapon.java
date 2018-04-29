@@ -3,6 +3,11 @@ package lsg.weapons;
 import lsg.bags.Collectible;
 import lsg.consumables.RepairKit;
 
+/**
+ * Cette classe définit les caractéristiques de base d'une arme
+ * @author Tanguy.Pave
+ * @author Jade.Llanes
+ */
 public class Weapon implements Collectible{
     private String name;
     private int minDamage;
@@ -12,10 +17,21 @@ public class Weapon implements Collectible{
 
     public static String DURABILITY_STAT_STRING = "durability";
 
+    /**
+     * Constructeur de la classe
+     */
     public Weapon(){
         super();
     }
 
+    /**
+     * Constructeur de la classe avec parametres
+     * @param name
+     * @param minDamage
+     * @param maxDamage
+     * @param stamCost
+     * @param durability
+     */
     public Weapon(String name, int minDamage, int maxDamage, int stamCost, int durability) {
         this.name = name;
         this.minDamage = minDamage;
@@ -24,10 +40,17 @@ public class Weapon implements Collectible{
         this.durability = durability;
     }
 
+    /**
+     * Méthode qui enlève 1 de durabilité à l'arme
+     */
     public void use(){
         setDurability(durability -1);
     }
 
+    /**
+     * Méthode qui permet de savoir si l'arme est cassée ou non
+     * @return
+     */
     public boolean isBroken(){
         return getDurability() <= 0;
     }
@@ -42,28 +65,25 @@ public class Weapon implements Collectible{
     }
     
 
-    /*
-     *
+    /**
      * Surcharge de toString pour descriptif de l'arme
-     *
      * */
-
     @Override
     public String toString() {
         return getName() + " (Min: " + getMinDamage() + ", Max: " + getMaxDamage() + ", Stam: " + getStamCost() +
                 "," + DURABILITY_STAT_STRING + ":" + getDurability() + ")";
     }
 
-
+    /**
+     * Permet de connaitre le poids d'unr arme
+     */
     @Override
     public int getWeight(){
         return 2;
     }
 
-    /*
-     *
-     * Getters
-     *
+    /**
+     * Getters/setters
      * */
 
     public void setDurability(int durability) {

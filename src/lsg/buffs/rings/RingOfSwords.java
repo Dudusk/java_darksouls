@@ -3,6 +3,11 @@ package lsg.buffs.rings;
 import characters.Hero;
 import lsg.weapons.Sword;
 
+/**
+ * Cette classe définit les caractéristiques de la ring
+ * @author Tanguy.Pave
+ * @author Jade.Llanes
+ */
 public class RingOfSwords extends Ring{
 	
 	/**
@@ -13,7 +18,7 @@ public class RingOfSwords extends Ring{
 	}
 	
 	/**
-	 * Override pour conna�tre la force du buff
+	 * Override pour conna�tre la force du buff
 	 * @return power
 	 */
 	@Override

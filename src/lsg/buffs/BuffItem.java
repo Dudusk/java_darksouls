@@ -7,6 +7,11 @@ import characters.Monster;
 import lsg.armor.ArmorItem;
 import lsg.bags.Collectible;
 
+/**
+ * Cette classe définit les caractéristiques d'un buff
+ * @author Tanguy.Pave
+ * @author Jade.Llanes
+ */
 public abstract class BuffItem implements Collectible{
 	
 	private String name ; 
@@ -43,7 +48,9 @@ public abstract class BuffItem implements Collectible{
 		return String.format(Locale.US, "[%s, %.2f]", getName(), computeBuffValue()) ;
 	}
 
-
+	/**
+	 * PErmet d'obtenir le poids
+	 */
 	@Override
 	public int getWeight(){
 		return 1;
