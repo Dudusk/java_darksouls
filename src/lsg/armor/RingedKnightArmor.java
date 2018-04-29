@@ -1,7 +1,8 @@
 package lsg.armor;
 
 /**
- * Cette classe définit les caractéristiques d'une armure
+ * Cette classe définit les caractéristiques d'une armure.
+ *
  * @author Tanguy.Pave
  * @author Jade.Llanes
  */

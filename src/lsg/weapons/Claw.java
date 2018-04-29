@@ -8,7 +8,7 @@ package lsg.weapons;
 public class Claw extends Weapon {
 
 	/**
-	 * Constructeur de la class
+	 * Constructeur
 	 */
     public Claw(){
         super("Bloody Claw", 50, 150, 5, 100);

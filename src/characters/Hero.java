@@ -13,6 +13,7 @@ import lsg.weapons.ShotGun;
 
 /**
  * Cette classe définit les caractéristiques du character : héro
+ *
  * @author Tanguy.Pave
  * @author Jade.Llanes
  */
@@ -24,8 +25,13 @@ public class Hero extends Character{
 	private ArmorItem armor[] = new ArmorItem[MAX_ARMOR_PIECES];
 	private Ring armorRings[] = new Ring[MAX_ARMOR_PIECES];
 	private Talisman armorTalisman[] = new Talisman[MAX_TALISMAN_PIECES];
-	
-    public Hero() {
+
+
+
+	/**
+	 * Constructeur
+	 */
+	public Hero() {
         super();
         setName("Ynovator");
         setLife(100);
@@ -35,8 +41,9 @@ public class Hero extends Character{
         refresh();
         //setWeapon(new ShotGun());
     }
-    
-    
+
+
+
 //    public static void main(String[] args) {
 //    	Hero hero = new Hero();   	
 //    	
@@ -47,6 +54,8 @@ public class Hero extends Character{
 //    	hero.armorToString();
 //    	hero.getArmorItems();
 //    }
+
+
 
     /**
      * L'action choisi par l'utilisateur : Attaquer ou consommer un consumable (manger/boire)
@@ -86,7 +95,9 @@ public class Hero extends Character{
 */
     	
     }
-    
+
+
+
     /**
      * Méthode qui permet d'ajouter un talisman au Héro
      * @param talisman
@@ -104,6 +115,7 @@ public class Hero extends Character{
     	
     }
     
+
 
     /**
      * Méthode qui permet d'ajouter une Ring au Héro
@@ -123,7 +135,8 @@ public class Hero extends Character{
     	
 
     }
-    
+
+
     
     /**
      * Méthode qui permet d'ajouter une armure au Héro
@@ -138,7 +151,9 @@ public class Hero extends Character{
     	}
 
     }
-    
+
+
+
     /**
      * Méthode qui permet d'avoir le power d'un ring ou talisman
      * @return total
@@ -161,7 +176,9 @@ public class Hero extends Character{
     	
     	return total;
     }
-    
+
+
+
     /**
      * Méthode qui permet d'avoir l'armur total du Héro
      * @return total
@@ -179,7 +196,9 @@ public class Hero extends Character{
     	return total;
     	//((float)(total*10))/10.;
     }
-    
+
+
+
     /**
      * Permet d'avoir la liste de l'armure sous forme de text
      * @return String
@@ -213,7 +232,9 @@ public class Hero extends Character{
     	System.out.println("ARMOR\t" + chaine);
     	return "ARMOR\t" + chaine + getTotalArmor();
     }
-    
+
+
+
     /**
      * Permet d'avoir les armure portées par le Héro
      * @return
@@ -232,6 +253,7 @@ public class Hero extends Character{
     }
 
 
+
     /**
      * Override de la methode de Character
     */
@@ -239,6 +261,8 @@ public class Hero extends Character{
 		//setArmorItem(new BlackWitchVeil(), 1);
 		return getTotalArmor();
 	}
+
+
 
 	/**
 	 * Méthode qui permet de connaître la puissance du buff

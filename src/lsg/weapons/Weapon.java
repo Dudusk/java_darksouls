@@ -5,6 +5,7 @@ import lsg.consumables.RepairKit;
 
 /**
  * Cette classe définit les caractéristiques de base d'une arme
+ *
  * @author Tanguy.Pave
  * @author Jade.Llanes
  */
@@ -18,11 +19,13 @@ public class Weapon implements Collectible{
     public static String DURABILITY_STAT_STRING = "durability";
 
     /**
-     * Constructeur de la classe
+     * Constructeur
      */
     public Weapon(){
         super();
     }
+
+
 
     /**
      * Constructeur de la classe avec parametres
@@ -40,12 +43,16 @@ public class Weapon implements Collectible{
         this.durability = durability;
     }
 
+
+
     /**
      * Méthode qui enlève 1 de durabilité à l'arme
      */
     public void use(){
         setDurability(durability -1);
     }
+
+
 
     /**
      * Méthode qui permet de savoir si l'arme est cassée ou non
@@ -54,7 +61,9 @@ public class Weapon implements Collectible{
     public boolean isBroken(){
         return getDurability() <= 0;
     }
-    
+
+
+
     /**
      * Reparation d'une arme avec le kit
      * @param kit
@@ -65,6 +74,7 @@ public class Weapon implements Collectible{
     }
     
 
+
     /**
      * Surcharge de toString pour descriptif de l'arme
      * */
@@ -74,6 +84,8 @@ public class Weapon implements Collectible{
                 "," + DURABILITY_STAT_STRING + ":" + getDurability() + ")";
     }
 
+
+
     /**
      * Permet de connaitre le poids d'unr arme
      */
@@ -82,10 +94,16 @@ public class Weapon implements Collectible{
         return 2;
     }
 
+
+
     /**
      * Getters/setters
-     * */
-
+     * @param name
+     * @param durability
+     * @param minDamage
+     * @param maxDamage
+     * @param stamCost
+     */
     public void setDurability(int durability) {
         this.durability = durability;
     }

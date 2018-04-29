@@ -14,8 +14,7 @@ import lsg.bags.Collectible;
  */
 public abstract class BuffItem implements Collectible{
 	
-	private String name ; 
-	
+	private String name ;
 	
 	/**
 	 * Constructeur d'un buff
@@ -24,7 +23,9 @@ public abstract class BuffItem implements Collectible{
 	public BuffItem(String name) {
 		this.name = name ;
 	}
-	
+
+
+
 	/**
 	 * Abstract Class of BuffItem
 	 * @return name
@@ -39,7 +40,9 @@ public abstract class BuffItem implements Collectible{
 	public String getName() {
 		return name;
 	}
-	
+
+
+
 	/**
 	 * Override de la m�thode toString()
 	 */
@@ -47,6 +50,8 @@ public abstract class BuffItem implements Collectible{
 	public String toString() {
 		return String.format(Locale.US, "[%s, %.2f]", getName(), computeBuffValue()) ;
 	}
+
+
 
 	/**
 	 * PErmet d'obtenir le poids

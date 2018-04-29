@@ -1,7 +1,8 @@
 package lsg.bags;
 
 /**
- * Cette interface définit la méthode que doit implémenter chaque classe qui l'implémente
+ * Cette interface définit la méthode que doit implémenter chaque classe qui l'implémente.
+ *
  * @author Tanguy.Pave
  * @author Jade.Llanes
  */

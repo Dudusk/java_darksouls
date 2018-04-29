@@ -15,7 +15,7 @@ public class Talisman extends BuffItem {
 	private int start, end ; 
 	
 	/**
-	 * Constructeur de la class Talisman
+	 * Constructeur
 	 * 
 	 * @param name
 	 * @param buff
@@ -28,7 +28,9 @@ public class Talisman extends BuffItem {
 		this.start = start ;
 		this.end = end ;
 	}
-	
+
+
+
 	/**
 	 * Override de computeBuffValue()
 	 * Si l'heure n'est pas bonne, aucun buff.

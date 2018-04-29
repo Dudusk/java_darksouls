@@ -18,6 +18,7 @@ import lsg.weapons.Weapon;
 /**
  * Cette classe est la classe main du jeu
  * Certaines modifications ont ete apportees car pas tout n'est fonctionnel.
+ *
  * @author Tanguy.Pave
  * @author Jade.Llanes
  */
@@ -61,9 +62,9 @@ public class LearningSoulsGame {
 		monster.setTalisman(new NoonGift(), 1);
 		
 		//hero.use(new Coffe());
-		
-		
-		
+
+
+
 
 		System.out.println("------------");
 		
@@ -81,17 +82,19 @@ public class LearningSoulsGame {
 		} else if(!hero.isAlive()) {
 			System.out.println("\n--- \t" + monster.getName() + " WINS !!! \t ---");
 		}
-			
 
-		
+
+
 		
 		
     	//hero.getArmor();
-		
 
-		
+
+
 	}
-	
+
+
+
 	/**
 	 * Méthode qui permet de créer un héro avec une arme pour utiliser la stamine et la vie. Le but étant de tester 
 	 * le fonctionnement de la vie et stamina.
@@ -103,7 +106,9 @@ public class LearningSoulsGame {
 		hero.setWeapon(new Weapon("Grosse arme", 0, 0, 1000, 100));
 		hero.attack();
 	}
-	
+
+
+
 	/**
 	 * Permet de manger un menu
 	 */
@@ -116,6 +121,8 @@ public class LearningSoulsGame {
 		}
 		
 	}
+
+
 	
 	/**
 	 * Permet d'affiher le titre du jeu

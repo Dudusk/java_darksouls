@@ -14,6 +14,7 @@ import lsg.weapons.Weapon;
 
 /**
  * Cette classe définit les caractéristiques de base de chaque personnages.
+ *
  * @author Tanguy.Pave
  * @author Jade.Llanes
  */
@@ -43,7 +44,6 @@ public abstract class Character {
 
 
 
-   
 	/**
      * Constructeur de la classe 
      */
@@ -99,7 +99,9 @@ public abstract class Character {
         }
         return degats;
     }
-    
+
+
+
     /**
      * Attaque, fixe les armes de chaque Héro/Monstre
      */
@@ -112,7 +114,9 @@ public abstract class Character {
         	attackWith(monsterWp);
         }
     }
-    
+
+
+
     /**
      * Affiche les stats de l'adversaire et du Héro ainsi que les armes et consommables
      */
@@ -120,6 +124,8 @@ public abstract class Character {
 		printStats();
 		System.out.println(BULLET_POINT + " " + getWeapon() + "\n" + BULLET_POINT + " " + getConsumable());
 	}
+
+
 
     /**
      * L'action choisi par l'utilisateur : Attaquer ou consommer un consumable (manger/boire)
@@ -159,7 +165,9 @@ public abstract class Character {
     	
     	
     }
-    
+
+
+
     /**
      * Methode non utilisee, probleme d'instanciation
      */
@@ -171,7 +179,9 @@ public abstract class Character {
     	hero.setWeapon(playerWeapon);
     	monster.setWeapon(monsterWp);
     }
-    
+
+
+
     /**
      * Méthode d'initialisation de d'attaque 1v1
      */
@@ -203,7 +213,8 @@ public abstract class Character {
         return value;
     }
     
-    
+
+
     /**
      * Permet de boire, remet donc de la stamina en utilisant un consumable
      * @param consumable
@@ -215,7 +226,9 @@ public abstract class Character {
     	
     	consumable.use();
     }
-    
+
+
+
     /**
      * Permet de manger, remet donc de la vie en utilisant un consumable
      * @param consumable
@@ -227,7 +240,9 @@ public abstract class Character {
 
     	consumable.use();
     }
-    
+
+
+
     /**
      * R�paration d'une arme avec le kit
      * @param consumable
@@ -236,7 +251,9 @@ public abstract class Character {
     	System.out.println(getName() + " repairs " + getWeapon() + " with " + consumable.toString());
     	consumable.use();
     }
-    
+
+
+
     /**
      * Méthode qui utilise le consommable
      * @param consumable
@@ -253,13 +270,16 @@ public abstract class Character {
     	}
     	
     }
-    
+
+
+
     /**
      * Consommation d'objets
      */
     public void consume() {
     	use(this.consumable);
     }
+
 
     
     /**
@@ -268,7 +288,9 @@ public abstract class Character {
     public void printStats() {
         System.out.println(toString());
     }
-    
+
+
+
     /**
      * Réécriture de la méthode toString permettant d'afficher les statistiques de chaque Hero/Monstre
      */
@@ -284,6 +306,8 @@ public abstract class Character {
         }
     }
 
+
+
     /**
      * Méthode qui permet de savoir si le monstre ou le héro est en vie.
      * @return boolean
@@ -292,23 +316,26 @@ public abstract class Character {
         return getLife() > 0;
     }
 
-    
-    //Classe abstraite � impl�menter
+
+
     /**
      * Permet de connaître la protéction de chaque entité
      * @return
      */
     public abstract float computeProtection();
-    
+
+
+
     /**
      * Permet de connaître les buffs de chaque entité
      * @return
      */
     public abstract float computeBuff();
-    
-    
+
+
     /**
-     * GETTERS ET SETTERS
+     * GETTER AND SETTER
+     * @param consumable
      */
     public Consumable getConsumable() {
 		return consumable;
@@ -318,10 +345,22 @@ public abstract class Character {
 		this.consumable = consumable;
 	}
 
+
+
+    /**
+     * GETTER AND SETTER
+     * @param attack
+     */
 	public int getAttack() {
 		return attack;
 	}
 
+
+
+    /**
+     * GETTER AND SETTER
+     * @param degats
+     */
 	public int getDegats() {
         return degats;
     }
@@ -330,6 +369,11 @@ public abstract class Character {
         this.degats = degats;
     }
 
+
+    /**
+     * GETTER AND SETTER
+     * @param weapon
+     */
     public Weapon getWeapon() {
         return playerWeapon;
     }
@@ -338,6 +382,12 @@ public abstract class Character {
         this.playerWeapon = weapon;
     }
 
+
+
+    /**
+     * GETTER AND SETTER
+     * @param name
+     */
     public String getName() {
         return name;
     }
@@ -346,6 +396,12 @@ public abstract class Character {
         this.name = name;
     }
 
+
+
+    /**
+     * GETTER AND SETTER
+     * @param life
+     */
     public int getLife() {
         return life;
     }
@@ -354,6 +410,11 @@ public abstract class Character {
         this.life = life;
     }
 
+
+    /**
+     * GETTER AND SETTER
+     * @param maxLife
+     */
     public int getMaxLife() {
         return maxLife;
     }
@@ -362,6 +423,12 @@ public abstract class Character {
         this.maxLife = maxLife;
     }
 
+
+
+    /**
+     * GETTER AND SETTER
+     * @param stamina
+     */
     public int getStamina() {
         return stamina;
     }
@@ -370,6 +437,11 @@ public abstract class Character {
         this.stamina = stamina;
     }
 
+
+    /**
+     * GETTER AND SETTER
+     * @param maxStamina
+     */
     public int getMaxStamina() {
         return maxStamina;
     }

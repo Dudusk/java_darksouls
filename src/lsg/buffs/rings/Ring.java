@@ -4,7 +4,8 @@ import characters.Hero;
 import lsg.buffs.BuffItem;
 
 /**
- * Cette classe définit les caractéristiques de base d'une ring
+ * Cette classe définit les caractéristiques de base d'une ring.
+ *
  * @author Tanguy.Pave
  * @author Jade.Llanes
  */
@@ -22,26 +23,26 @@ public abstract class Ring extends BuffItem {
 		super(name) ;
 		this.power = power ;
 	}
-	
+
+
+
 	/**
-	 * Setter Hero
+	 * GETTER AND SETTER Hero
 	 * @param hero
 	 */
 	public void setHero(Hero hero) {
 		this.hero = hero;
 	}
-	
-	/**
-	 * Getter hero
-	 * @return hero
-	 */
+
 	public Hero getHero() {
 		return hero;
 	}
 
+
+
 	/**
 	 * getter/setter 
-	 * @return hero
+	 * @param power
 	 */
 	public int getPower() {
 		return power;

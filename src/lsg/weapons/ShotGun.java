@@ -8,7 +8,7 @@ package lsg.weapons;
 public class ShotGun extends Weapon {
 
 	/**
-	 * Constructeur de l'arme
+	 * Constructeur
 	 */
     public ShotGun(){
         super("ShotGun", 6, 7, 5, 100);

@@ -12,11 +12,13 @@ public class RingOfDeath extends Ring {
 	private static float LIMIT = 0.5f ; 
 
 	/**
-	 * Constructeur de la classe
+	 * Constructeur
 	 */
 	public RingOfDeath() {
 		super("Ring of Death", 10000) ;
 	}
+
+
 
 	/**
 	 * Override pour conna�tre la force du buff
@@ -30,7 +32,9 @@ public class RingOfDeath extends Ring {
 			else return 0f ;
 		}else return 0f ;
 	}
-	
+
+
+
 	/**
 	 * Un test...
 	 * @param args non utilisé

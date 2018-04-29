@@ -6,7 +6,7 @@ import java.util.Iterator;
 import lsg.consumables.Consumable;
 
 /**
- * Cette classe définit le sac du hero
+ * Cette classe définit les caracteristique et methodes du sac du hero.
  * @author Tanguy.Pave
  * @author Jade.Llanes
  */
@@ -17,16 +17,18 @@ public class Bag extends HashSet<Collectible>{
     private HashSet<Collectible> items;
 
     /**
-     * Constructeu de la classe
+     * Constructeur
      * @param capacity
      */
     public Bag(int capacity) {
         this.capacity = capacity;
     }
 
+
+
     /**
      * GETTER/SETTER
-     * @return
+     * @param capacity
      */
     public int getCapacity() {
         return capacity;
@@ -35,6 +37,8 @@ public class Bag extends HashSet<Collectible>{
     public int getWeight() {
         return weight;
     }
+
+
 
     /**
      * Ajoute un item dans le sac
@@ -52,17 +56,20 @@ public class Bag extends HashSet<Collectible>{
         }
     }
 
+
+
     /**
      * Supprimer un objet du sac
      * @param item
      * @return item
      */
     public Collectible pop (Collectible item) {
-    	
-    	
+
     	
     	return item;
     }
+
+
 
     /**
      * Pour connapitre ce que contient le sac
@@ -82,7 +89,9 @@ public class Bag extends HashSet<Collectible>{
     	
     	return false;
     }
-    
+
+
+
     /**
      * Connaitre les objets dans le sac
      * @return
@@ -103,7 +112,9 @@ public class Bag extends HashSet<Collectible>{
     	
     	return itemsOfBag;
     }
-    
+
+
+
     /**
      * Calcul la totalité du poids du sac
      * @return total
@@ -124,6 +135,8 @@ public class Bag extends HashSet<Collectible>{
     	
     	return total;
     }
+
+
 
     /**
      * Retourne le sac en texte

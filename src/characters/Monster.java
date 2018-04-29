@@ -3,7 +3,7 @@ package characters;
 import lsg.buffs.talismans.Talisman;
 
 /**
- * Cette classe définit les caractéristiques du héro
+ * Cette classe définit les caractéristiques du character : Monster
  * @author Tanguy.Pave
  * @author Jade.Llanes
  */
@@ -16,7 +16,7 @@ public class Monster extends Character {
     private Talisman armorTalisman[] = new Talisman[MAX_TALISMAN_PIECES];
     
     /**
-     * Constructeur de la classe
+     * Constructeur
      */
     public Monster() {
         super();
@@ -26,7 +26,9 @@ public class Monster extends Character {
         setStamina(10);
         refresh();
     }
-    
+
+
+
     /**
      * L'action du monstre : Attaquer s'il est en vie
      */
@@ -36,7 +38,9 @@ public class Monster extends Character {
     	if(isAlive())
     		attack();
     }
-    
+
+
+
     /**
      * Méthode qui permet d'ajouter un talisman au Héro
      * @param talisman
@@ -54,7 +58,9 @@ public class Monster extends Character {
 		}
     	
     }
-    
+
+
+
     /**
      * Obtenir le power du talisman
      * @return total
@@ -72,7 +78,8 @@ public class Monster extends Character {
     	return total;
     }
     
-    
+
+
     /**
      * Getters/setters
      */
@@ -84,7 +91,8 @@ public class Monster extends Character {
         this.skinThickness = skinThickness;
     }
 
-    
+
+
     /**
      * Override de la methode de Character
      */
@@ -92,6 +100,8 @@ public class Monster extends Character {
 	public float computeProtection() {
 		return getSkinThickness();
 	}
+
+
 
 	/**
      * Override de la methode de ComputeBuff

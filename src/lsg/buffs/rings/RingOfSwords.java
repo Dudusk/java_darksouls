@@ -16,7 +16,9 @@ public class RingOfSwords extends Ring{
 	public RingOfSwords() {
 		super("Ring of Swords", 10) ;
 	}
-	
+
+
+
 	/**
 	 * Override pour conna�tre la force du buff
 	 * @return power
@@ -26,7 +28,8 @@ public class RingOfSwords extends Ring{
 		if (hero != null && (hero.getWeapon() instanceof Sword) )  return power ;
 		else return 0f ;
 	}
-	
+
+
 	/**
 	 * Un test...
 	 * @param args non utilisé

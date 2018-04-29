@@ -4,21 +4,24 @@ import lsg.armor.ArmorItem;
 import lsg.armor.DragonSlayerLeggings;
 
 /**
- * Cette classe définit les caractéristiques de cette ring
+ * Cette classe définit les caractéristiques de cette ring.
+ *
  * @author Tanguy.Pave
  * @author Jade.Llanes
  */
 public class DragonSlayerRing extends Ring{
 	
 	/**
-	 * Constructeur de la classe
+	 * Constructeur
 	 */
 	public DragonSlayerRing() {
 		super("Dragon Slayer Ring", 14) ;
 	}
-	
+
+
+
 	/**
-	 * Override pour conna�tre la force du buff
+	 * Override pour connaitre la force du buff
 	 * @return power
 	 */
 	@Override
@@ -27,9 +30,11 @@ public class DragonSlayerRing extends Ring{
 			return power ;
 		}else return 0 ;
 	}
-	
+
+
+
 	/**
-	 * Conna�tre si le personnage � la ring
+	 * Savoir si le personnage possede la ring
 	 * @return bool(false)
 	 */
 	private boolean hasDragonsSlayerItem(){
