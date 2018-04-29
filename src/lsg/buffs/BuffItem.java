@@ -5,8 +5,9 @@ import java.util.Locale;
 import characters.Hero;
 import characters.Monster;
 import lsg.armor.ArmorItem;
+import lsg.bags.Collectible;
 
-public abstract class BuffItem {
+public abstract class BuffItem implements Collectible{
 	
 	private String name ; 
 	
@@ -35,11 +36,17 @@ public abstract class BuffItem {
 	}
 	
 	/**
-	 * Override de la méthode toString()
+	 * Override de la mï¿½thode toString()
 	 */
 	@Override
 	public String toString() {
 		return String.format(Locale.US, "[%s, %.2f]", getName(), computeBuffValue()) ;
+	}
+
+
+	@Override
+	public int getWeight(){
+		return 1;
 	}
 	
 }
