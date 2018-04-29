@@ -25,10 +25,7 @@ public class Consumable implements Collectible{
      * @return
      */
     public int use() {
-<<<<<<< HEAD
-=======
     	System.out.println("\n#### " + name + " a �t� utilis�. ####\n");
->>>>>>> 6e459a2250b5d14d8a45f633d5991855abc1ad43
     	capacity = 0;
     	return capacity;
     }

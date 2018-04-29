@@ -28,11 +28,7 @@ public class ArmorItem implements Collectible{
 	
 	
 	/**
-<<<<<<< HEAD
-	 * Surcharge de la méthode toString
-=======
 	 * Surcharge de la m�thode toString
->>>>>>> 6e459a2250b5d14d8a45f633d5991855abc1ad43
 	 */
 	@Override
 	public String toString() {
