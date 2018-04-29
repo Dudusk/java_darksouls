@@ -1,5 +1,11 @@
 package lsg.consumables.food;
 
+/**
+ * Cette classe represente le consommable Hamburger, sous-classe de Food.
+ *
+ * @author Jade.Llanes
+ * @author Tanguy.Pavé
+ */
 public class Hamburger extends Food {
 
     public Hamburger() {

@@ -3,6 +3,12 @@ package lsg.consumables;
 import characters.Hero;
 import lsg.bags.Collectible;
 
+/**
+ * Cette classe dzfinit les caractéristiques et methodes d'un Consumable.
+ *
+ * @author Jade.Llanes
+ * @author Tanguy.Pave
+ */
 public class Consumable implements Collectible{
 
     private String name;
@@ -10,8 +16,9 @@ public class Consumable implements Collectible{
     private String stat;
 
 
+
     /**
-     * Constructeur de Consumable
+     * Constructeur
      */
     public Consumable(String name, int capacity, String stat) {
         this.name = name;
@@ -19,16 +26,19 @@ public class Consumable implements Collectible{
         this.stat = stat;
 
     }
-    
+
+
+
     /**
-     * M�thode qui est d�clanch� quand on utilise un consommable
-     * @return
+     * utiliser un consummable
+     * @return capacity
      */
     public int use() {
     	System.out.println("\n#### " + name + " a �t� utilis�. ####\n");
     	capacity = 0;
     	return capacity;
     }
+
 
 
     /**
@@ -38,11 +48,15 @@ public class Consumable implements Collectible{
     public String getName() {
         return name;
     }
-    
+
+
+
     public void setName(String name) {
         this.name = name;
     }
-    
+
+
+
     /**
      * GETTERS AND SETTERS
      * @param capacity
@@ -54,6 +68,8 @@ public class Consumable implements Collectible{
     public void setCapacity(int capacity) {
         this.capacity = capacity;
     }
+
+
 
     /**
      * GETTERS AND SETTERS
@@ -68,11 +84,13 @@ public class Consumable implements Collectible{
     }
 
 
+
     @Override
     public String toString() {
 
             return  name + " [ " + capacity + " " + stat + " point(s) ]";
     }
+
 
 
     @Override

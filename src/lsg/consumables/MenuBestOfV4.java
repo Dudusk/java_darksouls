@@ -9,9 +9,17 @@ import lsg.consumables.drinks.Wine;
 import lsg.consumables.food.Americain;
 import lsg.consumables.food.Hamburger;
 
+/**
+ * Cette classe dzfinit les caractéristiques et methodes d'une classe executable : Menu, groupement de plusieurs consumables.
+ *
+ * @author Jade.Llanes
+ * @author Tanguy.Pave
+ */
 public class MenuBestOfV4 extends LinkedHashSet<Consumable> {
-	
- 	
+
+    /**
+     * Constructeur
+     */
     public MenuBestOfV4() {
     	add(new Hamburger());
     	add(new Wine());
@@ -20,6 +28,12 @@ public class MenuBestOfV4 extends LinkedHashSet<Consumable> {
     	add(new Whisky());
     }
 
+
+
+    /**
+     * Retourne le menu en string.
+     * @return ligne
+     */
     public Consumable listeMenu() {
         Consumable ligne = null;
         int i = 0;
@@ -34,6 +48,8 @@ public class MenuBestOfV4 extends LinkedHashSet<Consumable> {
         return ligne;
     }
 
+
+
     @Override
     public String toString() {
     	System.out.println(getClass().getSimpleName() + " :");
@@ -41,6 +57,12 @@ public class MenuBestOfV4 extends LinkedHashSet<Consumable> {
         //getClass().getSimpleName() + "\n" + listeMenu();
     }
 
+
+
+    /**
+     * Creer un menu et liste son contenu
+     * @param args
+     */
     public static void main(String[] args) {
     	MenuBestOfV4 menu = new MenuBestOfV4();
         menu.toString();

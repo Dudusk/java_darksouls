@@ -11,14 +11,23 @@ import lsg.consumables.drinks.Wine;
 import lsg.consumables.food.Americain;
 import lsg.consumables.food.Hamburger;
 
+/**
+ * Cette classe dzfinit les caractéristiques et methodes d'une classe executable : Menu, groupement de plusieurs consumables.
+ *
+ * @author Jade.Llanes
+ * @author Tanguy.Pave
+ */
 public class MenuBestOfV2 implements Set<Object>{
 	
 	 	private int MAX_CONSUMABLE = 5;
 	 	Set<Consumable> menu = new HashSet<Consumable>(MAX_CONSUMABLE);
 	    //Consumable[] menu = new Consumable[MAX_CONSUMABLE];
-	 
-	 	
-	    public MenuBestOfV2() {
+
+
+	/**
+	 * Constructeur
+	 */
+	public MenuBestOfV2() {
 	    	menu.add(new Hamburger());
 	    	menu.add(new Wine());
 	    	menu.add(new Americain());
@@ -26,19 +35,27 @@ public class MenuBestOfV2 implements Set<Object>{
 	    	menu.add(new Whisky());
 	    }
 
-	    public String listeMenu() {
-	        String ligne = "";
-	        int i = 0;
-	        Iterator<Consumable> itr= menu.iterator();
-	        
-	        while(itr.hasNext()){
-	        	i++;
-	        	ligne = i + ": " + itr.next();
-	        	System.out.println(ligne);  
-	        }  
-	        
-	        return ligne;
-	    }
+
+
+		/**
+		 * Retourne le menu en string.
+		 * @return ligne
+		 */
+		private String listeMenu() {
+			String ligne = "";
+			int i = 0;
+			Iterator<Consumable> itr= menu.iterator();
+
+			while(itr.hasNext()){
+				i++;
+				ligne = i + ": " + itr.next();
+				System.out.println(ligne);
+			}
+
+			return ligne;
+		}
+
+
 
 	    @Override
 	    public String toString() {
@@ -47,10 +64,17 @@ public class MenuBestOfV2 implements Set<Object>{
 	        //getClass().getSimpleName() + "\n" + listeMenu();
 	    }
 
+
+		/**
+		 * Creer un menu et liste son contenu
+		 * @param args
+		 */
 	    public static void main(String[] args) {
 	        MenuBestOfV2 menu = new MenuBestOfV2();
 	        menu.toString();
 	    }
+
+
 
 		@Override
 		public int size() {
@@ -58,11 +82,13 @@ public class MenuBestOfV2 implements Set<Object>{
 			return 0;
 		}
 
+
 		@Override
 		public boolean isEmpty() {
 			// TODO Auto-generated method stub
 			return false;
 		}
+
 
 		@Override
 		public boolean contains(Object o) {
@@ -70,11 +96,15 @@ public class MenuBestOfV2 implements Set<Object>{
 			return false;
 		}
 
+
+
 		@Override
 		public Iterator<Object> iterator() {
 			// TODO Auto-generated method stub
 			return null;
 		}
+
+
 
 		@Override
 		public Object[] toArray() {
@@ -82,11 +112,15 @@ public class MenuBestOfV2 implements Set<Object>{
 			return null;
 		}
 
+
+
 		@Override
 		public Object[] toArray(Object[] a) {
 			// TODO Auto-generated method stub
 			return null;
 		}
+
+
 
 		@Override
 		public boolean add(Object e) {
@@ -95,11 +129,15 @@ public class MenuBestOfV2 implements Set<Object>{
 			return false;
 		}
 
+
+
 		@Override
 		public boolean remove(Object o) {
 			// TODO Auto-generated method stub
 			return false;
 		}
+
+
 
 		@Override
 		public boolean containsAll(Collection<?> c) {
@@ -107,11 +145,15 @@ public class MenuBestOfV2 implements Set<Object>{
 			return false;
 		}
 
+
+
 		@Override
 		public boolean addAll(Collection<?> c) {
 			// TODO Auto-generated method stub
 			return false;
 		}
+
+
 
 		@Override
 		public boolean retainAll(Collection<?> c) {
@@ -119,11 +161,15 @@ public class MenuBestOfV2 implements Set<Object>{
 			return false;
 		}
 
+
+
 		@Override
 		public boolean removeAll(Collection<?> c) {
 			// TODO Auto-generated method stub
 			return false;
 		}
+
+
 
 		@Override
 		public void clear() {
