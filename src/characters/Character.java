@@ -12,6 +12,11 @@ import lsg.weapons.Claw;
 import lsg.weapons.Sword;
 import lsg.weapons.Weapon;
 
+/**
+ * Cette classe définit les caractéristiques de base de chaque personnages.
+ * @author Tanguy.Pave
+ * @author Jade.Llanes
+ */
 public abstract class Character {
     private String name;
     private int life;
@@ -40,8 +45,7 @@ public abstract class Character {
 
    
 	/**
-     * METHODES
-     * Constructeur
+     * Constructeur de la classe 
      */
     public Character() {
         this.name= "character";
@@ -52,7 +56,7 @@ public abstract class Character {
     /**
      * Attaque avec l'arme
      * @param weapon
-     * @return
+     * @return degats
      */
     private int attackWith(Weapon weapon) {
     	
@@ -97,7 +101,7 @@ public abstract class Character {
     }
     
     /**
-     * Attaque
+     * Attaque, fixe les armes de chaque Héro/Monstre
      */
     public void attack(){
         if (getClass().getName().equals("characters.Hero")) {
@@ -110,14 +114,16 @@ public abstract class Character {
     }
     
     /**
-     * Affiche les stats de l'adversaire et du Héro
+     * Affiche les stats de l'adversaire et du Héro ainsi que les armes et consommables
      */
     public void refresh() {
 		printStats();
 		System.out.println(BULLET_POINT + " " + getWeapon() + "\n" + BULLET_POINT + " " + getConsumable());
 	}
 
-    
+    /**
+     * L'action choisi par l'utilisateur : Attaquer ou consommer un consumable (manger/boire)
+     */
     public void fight1v1() {
 	Scanner sc = new Scanner(System.in);
     	
@@ -129,8 +135,7 @@ public abstract class Character {
     	if(enterkey == 1) {
     		attack();
     		refresh();
-    	} 
-    	if(enterkey == 2) {
+    	} else if(enterkey == 2) {
     		consume();
     		refresh();
     	}
@@ -156,7 +161,7 @@ public abstract class Character {
     }
     
     /**
-     * C'est bof par ici, not used
+     * Methode non utilisee, probleme d'instanciation
      */
     public void init() {
     	Hero hero = new Hero();
@@ -167,6 +172,9 @@ public abstract class Character {
     	monster.setWeapon(monsterWp);
     }
     
+    /**
+     * Méthode d'initialisation de d'attaque 1v1
+     */
     public void play_v1() {
     	init();
     	fight1v1();
@@ -175,7 +183,9 @@ public abstract class Character {
     
 
     /**
-     * Enl�ve de la vie
+     * Enlève le nombre de vie au personnage (Hero ou monster) en fonction du dégât calculé.
+     * @param value
+     * @return value
      */
     public int getHitWith(int value){
 
@@ -255,11 +265,13 @@ public abstract class Character {
     /**
      * Affichage des stats
      */
-    
     public void printStats() {
         System.out.println(toString());
     }
     
+    /**
+     * Réécriture de la méthode toString permettant d'afficher les statistiques de chaque Hero/Monstre
+     */
     @Override
     public String toString() {
         if (isAlive()) {
@@ -272,21 +284,32 @@ public abstract class Character {
         }
     }
 
+    /**
+     * Méthode qui permet de savoir si le monstre ou le héro est en vie.
+     * @return boolean
+     */
     public boolean isAlive() {
         return getLife() > 0;
     }
 
     
     //Classe abstraite � impl�menter
-    
+    /**
+     * Permet de connaître la protéction de chaque entité
+     * @return
+     */
     public abstract float computeProtection();
+    
+    /**
+     * Permet de connaître les buffs de chaque entité
+     * @return
+     */
     public abstract float computeBuff();
     
     
     /**
      * GETTERS ET SETTERS
      */
-    
     public Consumable getConsumable() {
 		return consumable;
 	}

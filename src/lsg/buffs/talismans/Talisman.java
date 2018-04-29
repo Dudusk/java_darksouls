@@ -4,6 +4,11 @@ import java.util.Calendar;
 
 import lsg.buffs.BuffItem;
 
+/**
+ * Cette classe définit les caractéristiques de base d'un talisman
+ * @author Tanguy.Pave
+ * @author Jade.Llanes
+ */
 public class Talisman extends BuffItem {
 	
 	private float buff ;

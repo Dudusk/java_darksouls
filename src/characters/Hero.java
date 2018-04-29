@@ -11,6 +11,11 @@ import lsg.buffs.rings.Ring;
 import lsg.buffs.talismans.Talisman;
 import lsg.weapons.ShotGun;
 
+/**
+ * Cette classe définit les caractéristiques du character : héro
+ * @author Tanguy.Pave
+ * @author Jade.Llanes
+ */
 public class Hero extends Character{
 	
 	private static int MAX_ARMOR_PIECES = 3;
@@ -43,7 +48,9 @@ public class Hero extends Character{
 //    	hero.getArmorItems();
 //    }
 
-    
+    /**
+     * L'action choisi par l'utilisateur : Attaquer ou consommer un consumable (manger/boire)
+     */
     @Override
     public void fight1v1() {
     	
@@ -80,7 +87,11 @@ public class Hero extends Character{
     	
     }
     
-    
+    /**
+     * Méthode qui permet d'ajouter un talisman au Héro
+     * @param talisman
+     * @param slot
+     */
     public void setTalisman(Talisman talisman, int slot) {
     	
     	// L'objet n'existe pas dans le tableau
@@ -95,7 +106,7 @@ public class Hero extends Character{
     
 
     /**
-     * Setter Ring
+     * Méthode qui permet d'ajouter une Ring au Héro
      * @param ring
      * @param slot
      */
@@ -115,7 +126,7 @@ public class Hero extends Character{
     
     
     /**
-     * Setter Armor
+     * Méthode qui permet d'ajouter une armure au Héro
      * @param piece
      * @param slot
      */
@@ -128,13 +139,10 @@ public class Hero extends Character{
 
     }
     
-    
-    public float getPowerBuff() {
-    	
-    	return 0;
-    }
-    
-    
+    /**
+     * Méthode qui permet d'avoir le power d'un ring ou talisman
+     * @return total
+     */
     public float getPower() {
     	
     	float total = 0;
@@ -154,7 +162,10 @@ public class Hero extends Character{
     	return total;
     }
     
-    
+    /**
+     * Méthode qui permet d'avoir l'armur total du Héro
+     * @return total
+     */
     public float getTotalArmor() {
     	float total = 0;
     	
@@ -169,7 +180,10 @@ public class Hero extends Character{
     	//((float)(total*10))/10.;
     }
     
-    
+    /**
+     * Permet d'avoir la liste de l'armure sous forme de text
+     * @return String
+     */
     public String armorToString() {
     	int i = 0;
     	String chaine = "";
@@ -200,6 +214,10 @@ public class Hero extends Character{
     	return "ARMOR\t" + chaine + getTotalArmor();
     }
     
+    /**
+     * Permet d'avoir les armure portées par le Héro
+     * @return
+     */
     public ArmorItem[] getArmorItems() {
     	
     	ArmorItem tableauArmurePortee[] = new ArmorItem[MAX_ARMOR_PIECES];
@@ -215,14 +233,16 @@ public class Hero extends Character{
 
 
     /**
-     * Override de la m�thode de Character
+     * Override de la methode de Character
     */
 	public float computeProtection() {	
 		//setArmorItem(new BlackWitchVeil(), 1);
 		return getTotalArmor();
 	}
 
-
+	/**
+	 * Méthode qui permet de connaître la puissance du buff
+	 */
 	@Override
 	public float computeBuff() {
 		return getPower();

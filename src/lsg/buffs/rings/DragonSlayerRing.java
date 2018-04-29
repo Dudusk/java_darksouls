@@ -3,6 +3,11 @@ package lsg.buffs.rings;
 import lsg.armor.ArmorItem;
 import lsg.armor.DragonSlayerLeggings;
 
+/**
+ * Cette classe dÃ©finit les caractÃ©ristiques de cette ring
+ * @author Tanguy.Pave
+ * @author Jade.Llanes
+ */
 public class DragonSlayerRing extends Ring{
 	
 	/**
@@ -13,7 +18,7 @@ public class DragonSlayerRing extends Ring{
 	}
 	
 	/**
-	 * Override pour connaître la force du buff
+	 * Override pour connaï¿½tre la force du buff
 	 * @return power
 	 */
 	@Override
@@ -24,7 +29,7 @@ public class DragonSlayerRing extends Ring{
 	}
 	
 	/**
-	 * Connaître si le personnage à la ring
+	 * Connaï¿½tre si le personnage ï¿½ la ring
 	 * @return bool(false)
 	 */
 	private boolean hasDragonsSlayerItem(){

@@ -2,6 +2,11 @@ package characters;
 
 import lsg.buffs.talismans.Talisman;
 
+/**
+ * Cette classe définit les caractéristiques du héro
+ * @author Tanguy.Pave
+ * @author Jade.Llanes
+ */
 public class Monster extends Character {
 
     private static int INSTANCES_COUNT;
@@ -10,7 +15,9 @@ public class Monster extends Character {
     private static int MAX_TALISMAN_PIECES = 1;
     private Talisman armorTalisman[] = new Talisman[MAX_TALISMAN_PIECES];
     
-    
+    /**
+     * Constructeur de la classe
+     */
     public Monster() {
         super();
         INSTANCES_COUNT++;
@@ -20,6 +27,9 @@ public class Monster extends Character {
         refresh();
     }
     
+    /**
+     * L'action du monstre : Attaquer s'il est en vie
+     */
     @Override
     public void fight1v1() {
     	refresh();
@@ -27,7 +37,11 @@ public class Monster extends Character {
     		attack();
     }
     
-    
+    /**
+     * Méthode qui permet d'ajouter un talisman au Héro
+     * @param talisman
+     * @param slot
+     */
     public void setTalisman(Talisman talisman, int slot) {
     	
     	// L'objet n'existe pas dans le tableau
@@ -41,6 +55,10 @@ public class Monster extends Character {
     	
     }
     
+    /**
+     * Obtenir le power du talisman
+     * @return total
+     */
     public float getPower() {
     	
     	float total = 0;
@@ -57,9 +75,7 @@ public class Monster extends Character {
     
     /**
      * Getters/setters
-     * @return
      */
-
     public float getSkinThickness() {
         return skinThickness;
     }
@@ -70,18 +86,20 @@ public class Monster extends Character {
 
     
     /**
-     * Override de la m�thode de Character
+     * Override de la methode de Character
      */
-    
 	@Override
 	public float computeProtection() {
 		return getSkinThickness();
 	}
 
+	/**
+     * Override de la methode de ComputeBuff
+     */
 	@Override
 	public float computeBuff() {
 		// TODO Auto-generated method stub
-		return 0;
+		return getPower();
 	}
     
 }

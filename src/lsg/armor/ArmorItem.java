@@ -2,12 +2,21 @@ package lsg.armor;
 
 import lsg.bags.Collectible;
 
+/**
+ * Cette classe définit les caractéristiques de base d'une armure
+ * @author Tanguy.Pave
+ * @author Jade.Llanes
+ */
 public class ArmorItem implements Collectible{
 
 	private String name;
 	private double armorValue;
 	
-	
+	/**
+	 * Constructeur de la classe
+	 * @param name
+	 * @param value
+	 */
 	public ArmorItem(String name, double value) {
 		this.name = name;
 		this.armorValue = value;
@@ -28,7 +37,7 @@ public class ArmorItem implements Collectible{
 	
 	
 	/**
-	 * Surcharge de la m�thode toString
+	 * Surcharge de la methode toString
 	 */
 	@Override
 	public String toString() {
@@ -36,7 +45,9 @@ public class ArmorItem implements Collectible{
 	}
 
 
-
+	/**
+	 * Permet de retourner le poids de l'armure
+	 */
 	@Override
 	public int getWeight(){
 		return 4;

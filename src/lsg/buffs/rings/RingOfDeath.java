@@ -2,19 +2,24 @@ package lsg.buffs.rings;
 
 import characters.Hero;
 
+/**
+ * Cette classe dÃ©finit les caractÃ©ristiques de la ring
+ * @author Tanguy.Pave
+ * @author Jade.Llanes
+ */
 public class RingOfDeath extends Ring {
 	
 	private static float LIMIT = 0.5f ; 
 
 	/**
-	 * Constructeur de la class
+	 * Constructeur de la classe
 	 */
 	public RingOfDeath() {
 		super("Ring of Death", 10000) ;
 	}
 
 	/**
-	 * Override pour connaître la force du buff
+	 * Override pour connaï¿½tre la force du buff
 	 * @return power
 	 */
 	@Override
@@ -28,7 +33,7 @@ public class RingOfDeath extends Ring {
 	
 	/**
 	 * Un test...
-	 * @param args non utilisé
+	 * @param args non utilisÃ©
 	 */
 	public static void main(String[] args) {
 		Hero hero = new Hero() ;
