@@ -26,7 +26,7 @@ public class ArmorItem {
 	
 	
 	/**
-	 * Surcharge de la méthode toString
+	 * Surcharge de la mÃ©thode toString
 	 */
 	@Override
 	public String toString() {
