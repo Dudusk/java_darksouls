@@ -24,6 +24,7 @@ La visibilité optimale pour isAlive est public dans cette configuration car la 
 à l'intérieur des autres packages.
 ```
 
+
 **TP2**
 
 Question 3 (1.2)
@@ -39,6 +40,7 @@ Question 4 (6)
 On remarque que la durabilité de l'épée continue de diminuer même lorsque les dégats et la stamina sont à zéro.
 ``` 	
 
+
 **TP3**
 
 Question 5 (4.2)
@@ -47,6 +49,7 @@ Question 5 (4.2)
 Les classes Hero et  Monster présentent une erreur car elles héritent de la  classe Character,  qui demande 
 obligatoirement d'écrire la méthode abstraite computeProtection  dans chacune des classes.
 ```
+
 
 **TP4**
 
