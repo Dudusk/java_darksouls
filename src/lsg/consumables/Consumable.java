@@ -1,8 +1,9 @@
 package lsg.consumables;
 
 import characters.Hero;
+import lsg.bags.Collectible;
 
-public class Consumable {
+public class Consumable implements Collectible{
 
     private String name;
     private int capacity;
@@ -20,11 +21,11 @@ public class Consumable {
     }
     
     /**
-     * Méthode qui est déclanché quand on utilise un consommable
+     * Mï¿½thode qui est dï¿½clanchï¿½ quand on utilise un consommable
      * @return
      */
     public int use() {
-    	System.out.println("\n#### " + name + " a été utilisé. ####\n");
+    	System.out.println("\n#### " + name + " a ï¿½tï¿½ utilisï¿½. ####\n");
     	capacity = 0;
     	return capacity;
     }
@@ -71,6 +72,12 @@ public class Consumable {
     public String toString() {
 
             return  name + " [ " + capacity + " " + stat + " point(s) ]";
+    }
+
+
+    @Override
+    public int getWeight(){
+        return 1;
     }
 
 }
